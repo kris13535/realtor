@@ -1,0 +1,127 @@
+.filters {
+  padding: 20px 15px; }
+
+.search_button form input {
+  width: 230px;
+  height: 38px;
+  padding-left: 10px;
+  font-size: 14px;
+  border: 1px solid #a5a0a0;
+  border-right: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  overflow: hidden; }
+
+.butt_filter_city {
+  width: 40px;
+  height: 38px;
+  background: #D92227;
+  color: #ffffff;
+  font-size: 16px;
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-right: 25px; }
+
+.dropdown_button {
+  padding-right: 5px; }
+  .dropdown_button button {
+    background-color: white;
+    color: black;
+    border: 1px solid #a5a0a0; }
+    .dropdown_button button:hover {
+      background-color: #d8d6d6;
+      border: 1px solid #a5a0a0;
+      color: black; }
+
+.dropdown.show button:focus {
+  background-color: #d8d6d6;
+  border: 1px solid #a5a0a0;
+  color: black; }
+
+.dropdown-menu {
+  padding-top: 0;
+  margin-top: 10px; }
+
+.dropdown_titel {
+  background-color: #F7F7F7;
+  padding: 10px 15px;
+  font-weight: bold; }
+
+.num_choices_div {
+  padding: 0 10px; }
+
+input[type=radio] {
+  opacity: 0;
+  display: none; }
+
+.num_choice {
+  color: gray;
+  margin: 5px;
+  border: 1px solid transparent;
+  padding: 10px 13px; }
+  .num_choice:hover {
+    border: 1px solid red;
+    border-radius: 50%;
+    color: red; }
+  .num_choice.num_choice_any {
+    color: red;
+    border-radius: 50%;
+    border: 1px solid red;
+    padding: 10px; }
+
+.input_data_list {
+  margin: 10px; }
+  .input_data_list input {
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 0 10px;
+    padding: 5px; }
+
+.titel_property_type button {
+  background: transparent;
+  border: none;
+  color: #3377CC; }
+
+.property_type {
+  width: 400px; }
+
+.icon_property_type {
+  color: gray;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .icon_property_type i {
+    border: 1px solid gray;
+    padding: 18px;
+    border-radius: 50%; }
+  .icon_property_type .icon_text {
+    padding-left: 10px; }
+  .icon_property_type .fas {
+    margin: 5px 10px; }
+  .icon_property_type:hover {
+    color: red; }
+    .icon_property_type:hover i {
+      color: red;
+      border: 1px solid red; }
+
+.border_nyc {
+  margin: 15px 15px 0 15px;
+  padding-top: 10px;
+  border-top: 1px solid gray; }
+
+/*-------------------------------*/
+.no_filters {
+  margin: 0 10px; }
+  .no_filters button {
+    margin: 0 10px;
+    padding: 0 5px;
+    height: 38px;
+    background: white;
+    color: #D92227;
+    font-size: 16px;
+    border-color: #D92227;
+    border-radius: 5px; }
+    .no_filters button:hover {
+      border-color: #4f4e4e;
+      background-color: #d8d6d6; }

@@ -1,0 +1,143 @@
+.titel_of_boxs {
+  padding: 20px 0;
+  font-size: 24px;
+  font-weight: bold; }
+
+.img_row {
+  overflow: hidden; }
+
+.shadow_box {
+  border-radius: 4px;
+  padding-bottom: 20px;
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4); }
+
+.card {
+  border: 0; }
+
+.box {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-bottom: 20px;
+  font-size: 14px; }
+  .box img {
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100%;
+    height: 200px; }
+  .box ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around; }
+    .box ul li {
+      text-decoration: none;
+      color: #494749; }
+  .box span {
+    padding-left: 15px;
+    margin: 0;
+    color: #494749; }
+  .box a:hover {
+    text-decoration: none; }
+
+.price h3 {
+  position: absolute;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  background: #3D8509;
+  padding: 5px;
+  top: 20px;
+  left: 20px; }
+
+.price h4 {
+  position: absolute;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  left: 20px;
+  bottom: 100px; }
+
+.heart {
+  position: absolute;
+  width: 200px;
+  top: 15px;
+  right: -130px; }
+  .heart svg path:hover {
+    fill: rgba(255, 106, 0, 0.5); }
+
+/*---------------------------------*/
+.loading_box {
+  margin-top: 20px; }
+
+/* blue bar */
+.loading_background {
+  overflow: hidden;
+  height: 10px;
+  width: 80%;
+  background: #bab2b2;
+  z-index: 0;
+  position: relative;
+  margin: 10px; }
+  .loading_background.sort_loading_background {
+    width: 50%; }
+
+/* Shine */
+.loading_background:after {
+  content: '';
+  top: 0;
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+  width: 80%;
+  height: 10px;
+  position: absolute;
+  z-index: 1;
+  -webkit-animation: slide 1s infinite;
+  animation: slide 1s infinite;
+  /*
+  CSS Gradient - complete browser support from http://www.colorzilla.com/gradient-editor/
+  */
+  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(50%, rgba(255, 255, 255, 0.8)), color-stop(99%, rgba(128, 186, 232, 0)), color-stop(100%, rgba(125, 185, 232, 0)));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
+  /* IE10+ */
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(255, 255, 255, 0.8)), color-stop(99%, rgba(128, 186, 232, 0)), to(rgba(125, 185, 232, 0)));
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#007db9e8',GradientType=1 );
+  /* IE6-9 */ }
+  .loading_background:after.sort_loading_background {
+    width: 50%; }
+
+/* animation */
+@-webkit-keyframes slide {
+  0% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%); }
+  100% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%); } }
+@keyframes slide {
+  0% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%); }
+  100% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%); } }

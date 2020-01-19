@@ -1,0 +1,13 @@
+@media (max-width: 991px) {
+  .inner_nav_li {
+    display: none; }
+  .ipone_img_logo {
+    display: none; }
+  .advertise {
+    display: none; }
+  .log_sign_adv {
+    padding-top: 11px; } }
+
+.navbar-toggler {
+  border: none;
+  margin-right: 5px; }

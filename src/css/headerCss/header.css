@@ -1,0 +1,100 @@
+.logo_img {
+  width: 160px; }
+
+.top-bar {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 45px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  border-bottom: 1px solid #a09797; }
+
+.first_row_left {
+  font-size: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .first_row_left ul {
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+
+.inner_nav_li a {
+  text-decoration: none; }
+
+.inner_nav_li_label {
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  cursor: pointer;
+  padding: 13px 8px;
+  border-bottom: 2px solid transparent;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s; }
+  .inner_nav_li_label:hover {
+    border-bottom: 2px solid #D92328;
+    color: #D92328; }
+
+/*-------------------------------------------*/
+.bars {
+  position: absolute;
+  background: white;
+  padding: 10px 50px;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  z-index: 99;
+  top: 45px;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  font-size: 14px;
+  -webkit-animation: fade-in 0.5s;
+  animation: fade-in 0.5s;
+  display: none; }
+  .bars.open {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fade-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.list_item {
+  padding: 15px 0; }
+
+.sub_header {
+  font-size: 18px;
+  font-weight: bold;
+  color: black; }
+
+.list_item_li {
+  padding: 5px 25px; }
+  .list_item_li a {
+    color: black; }
+    .list_item_li a:hover {
+      color: red;
+      text-decoration: none; }

@@ -1,0 +1,160 @@
+.inpo_above_picture{
+  font-size: 12px;
+  margin-top: 30px;
+  span{
+    font-weight: bold;
+  }
+}
+.carousel{
+  display: flex;
+  .carousel-inner {
+    border-radius: 10px;
+  }
+  .img_absolute{
+    position: absolute;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    padding: 5px;
+    bottom: 20px;
+    &.new_home {
+    background: #3D8509;
+    left: 20px;
+    }
+    &.status{
+      background: #6d6c6c;
+      left: 70px;
+    }
+  }
+  .images_carousel {
+    width: 100%;
+    img{
+      height: 400px;
+      max-height: 400px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      position: relative;
+    }
+  }
+}
+
+.more_inpo_form{
+  position: relative;
+  background: #EBEBEB;
+  width: 400px;
+  padding: 10px;
+  margin-left: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .field{
+    padding: 7px 0;
+    input, textarea{
+      width: 250px;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 5px 5px 35px;
+    }
+  }
+  button{
+    border: none;
+    border-radius: 8px;
+    background: #b32827;
+    color: white;
+    margin-bottom: 10px;
+  }
+  p{
+    font-size: 11px;
+  }
+}
+
+.icons_form{
+  position: absolute;
+  display: flex;
+
+  flex-direction: column;
+  left: 30px;
+  top: 28px;
+  i{
+    padding: 17px 0;
+  }
+}
+
+.inpo_div{
+  margin-top: 20px;
+}
+
+.map_apartment{
+  iframe{
+    border-radius: 10px;
+    width: 500px;
+  }
+
+}
+
+.more_inpo{
+  p{
+    padding: 5px 0;
+    margin-left: 5px;
+  }
+  .price{
+    font-size: 28px;
+    font-weight: bold;
+  }
+}
+
+
+@media (max-width: 991px) {
+  .carousel{
+    display: block;
+  }
+  .more_inpo_form {
+    position: absolute;
+    top: 420px;
+    right: 0;
+
+  }
+  .map_apartment{
+    iframe{
+      position: absolute;
+
+      top: 910px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      padding-bottom: 20px;
+    }
+  }
+  .icons_form i {
+    padding: 16px 55px;
+  }
+}
+
+@media (max-width: 771px) {
+  .more_inpo_form {
+    position: absolute;
+    top: 580px;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  .map_apartment{
+    iframe{
+      top: 1100px;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+  }
+  .icons_form i {
+    padding: 16px 55px;
+  }
+}
+

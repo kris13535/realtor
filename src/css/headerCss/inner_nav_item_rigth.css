@@ -1,0 +1,119 @@
+.first_row_rigth {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 14px; }
+  .first_row_rigth ul {
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start; }
+  .first_row_rigth li {
+    border-bottom: 2px solid transparent; }
+    .first_row_rigth li a {
+      padding: 13px 10px;
+      color: black;
+      text-decoration: none; }
+      .first_row_rigth li a:hover {
+        color: red;
+        border-bottom: 2px solid red; }
+
+.iphone {
+  position: absolute;
+  z-index: 1;
+  top: 45px;
+  right: 230px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-size: 14px;
+  visibility: hidden;
+  opacity: 0;
+  padding: 10px;
+  background: white; }
+
+.iOS {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.iphone img {
+  width: 70px;
+  padding-right: 5px; }
+
+.iphone_img {
+  padding: 2px; }
+
+.line_iphone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.part_iphone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  .part_iphone a {
+    padding-bottom: 10px;
+    color: black; }
+    .part_iphone a:hover {
+      color: red; }
+
+.advertise {
+  border-left: 1px solid gray; }
+
+.iphone_img {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-bottom: 2px solid transparent; }
+  .iphone_img .ipone_img_logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+
+.iphone_img:hover {
+  border-bottom: 2px solid red; }
+
+.iphone_img:hover .iphone {
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  visibility: visible;
+  opacity: 1; }
+
+.first_child {
+  border-bottom: 1px solid #c4c0c0; }
+
+/*-----------------------------------------------*/

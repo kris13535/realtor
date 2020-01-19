@@ -1,0 +1,103 @@
+
+.first_row_rigth {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 14px;
+  ul {
+    list-style: none;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+  li {
+
+    border-bottom: 2px solid transparent;
+    a{
+      padding: 13px 10px;
+      color: black;
+      text-decoration: none;
+      &:hover{
+        color: red;
+        border-bottom: 2px solid red;
+
+      }
+    }
+  }
+}
+
+.iphone {
+  position: absolute;
+  z-index: 1;
+  top: 45px;
+  right: 230px;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  visibility: hidden;
+  opacity: 0;
+  padding: 10px;
+  background: white;
+}
+
+.iOS {
+  display: flex;
+}
+
+.iphone img {
+  width: 70px;
+  padding-right: 5px;
+}
+.iphone_img {
+  padding: 2px;
+}
+
+.line_iphone {
+  display: flex;
+  align-items: center;
+}
+
+.part_iphone {
+  display: flex;
+  flex-direction: column;
+  a{
+    padding-bottom: 10px;
+    color: black;
+    &:hover{
+      color: red;
+    }
+  }
+}
+
+
+.advertise{
+  border-left: 1px solid gray;
+}
+
+.iphone_img {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  .ipone_img_logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.iphone_img:hover {
+  border-bottom: 2px solid red;
+}
+.iphone_img:hover .iphone{
+  transition: 0.5s;
+  visibility: visible;
+  opacity: 1;
+}
+
+.first_child{
+  border-bottom: 1px solid #c4c0c0;
+}
+
+/*-----------------------------------------------*/
+
