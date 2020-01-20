@@ -2,13 +2,14 @@ import React from 'react';
 import validate, {field} from './validator';
 import InputErrors from './inputErrors';
 import "../../css/login_signupCss/login_signupCSS.css"
+import api from "../../server_api/api";
 
 class SignUp extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            firstName: field({name: 'firstName', isRequired:true, minLength: 2}),
-            lastName: field({name: 'lastName',isRequired: true, minLength: 2}),
+            first_name: field({name: 'firstName', isRequired:true, minLength: 2}),
+            last_name: field({name: 'lastName',isRequired: true, minLength: 2}),
             email: field({name: 'email', required: true, pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/}),
             password: field({name: 'password', isRequired:true, minLength: 6}),
             phone: field({name: 'phone', isRequired:true}),
@@ -53,7 +54,8 @@ class SignUp extends React.Component{
             for(let prop in this.state){
                 result[prop] = this.state[prop].value;
             }
-            console.log(result);
+            api.SignupUser(result)
+                .then(res => {console.log(res)})
         }
     };
 
@@ -71,19 +73,19 @@ class SignUp extends React.Component{
                             <form action="#" name="registration" onSubmit={this.handleSubmit}>
                                 <div class="form-group d-flex input_div">
                                     <label className={"input_label"} for="exampleInputEmail1">First Name</label>
-                                    <input type="text"  name="firstName"
+                                    <input type="text"  name="first_name"
                                            className="form_input" id="firstname" aria-describedby="emailHelp"
                                            placeholder="Enter first name" onBlur={this.handleChange}/>
                                 </div>
-                                <div className={"error"}><InputErrors errors={this.state.firstName.errors}></InputErrors></div>
+                                <div className={"error"}><InputErrors errors={this.state.first_name.errors}></InputErrors></div>
 
                                 <div class="form-group d-flex input_div">
                                     <label className={"input_label"} for="exampleInputEmail1">Last Name</label>
-                                    <input type="text"  name="lastName"
+                                    <input type="text"  name="last_name"
                                            className="form_input" id="lastname" aria-describedby="emailHelp"
                                            placeholder="Enter last name" onBlur={this.handleChange} />
                                 </div>
-                                <div className={"error"}><InputErrors errors={this.state.lastName.errors}></InputErrors></div>
+                                <div className={"error"}><InputErrors errors={this.state.last_name.errors}></InputErrors></div>
 
                                 <div class="form-group d-flex input_div">
                                     <label className={"input_label"} for="exampleInputEmail1">Email address</label>
