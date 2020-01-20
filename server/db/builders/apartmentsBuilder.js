@@ -20,14 +20,14 @@ class CustomersBuilder {
     country(countryName) {
         if (countryName) {
             this.params.push('%' + countryName + '%')
-            this.query += 'AND countries.`name` like ?'
+            this.query += 'AND countries.name like ?'
         }
         return this;
     }
-    city(cityId) {
-        if (cityId) {
-            this.params.push(cityId)
-            this.query += 'AND city_id = ?'
+    city(cityName) {
+        if (cityName) {
+            this.params.push('%' + cityName + '%')
+            this.query += 'AND c.name like  ?'
         }
         return this;
     }
@@ -97,7 +97,6 @@ class CustomersBuilder {
     }
 
     build() {
-
         return { query: this.query, params: this.params };
     }
 

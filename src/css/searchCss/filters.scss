@@ -4,14 +4,13 @@
 }
 
 .search_button form input{
-  width: 230px;
+  width: 160px;
   height: 38px;
   padding-left: 10px;
+  margin-right: 10px;
   font-size: 14px;
   border: 1px solid #a5a0a0;
-  border-right: none;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-radius: 5px;
   overflow: hidden;
 }
 
