@@ -4,9 +4,11 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.1",
+    "cookies": "^0.8.0",
     "cors": "^2.8.5",
     "font-awesome": "^4.7.0",
     "react": "^16.11.0",
+    "react-cookies": "^0.1.1",
     "react-dom": "^16.11.0",
     "react-fontawesome": "^1.7.1",
     "react-router-dom": "^5.1.2",

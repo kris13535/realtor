@@ -9,7 +9,7 @@ import {
 import SearchPage from "./pages/search/search_page";
 import HomePage from "./pages/home/home_page";
 import SingleApartment from "./pages/singleApartment/single_apartment";
-import Header from "./components/headerTop/header";
+import Header from "./components/header/header";
 import {getDataFromServer} from "./app_data/server_data";
 import CitiesPage from "./pages/cities/cities_page";
 import Loading from "./components/loading/loading";
