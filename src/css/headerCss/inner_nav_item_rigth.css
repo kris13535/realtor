@@ -7,6 +7,9 @@
   align-items: center;
   padding: 0 10px;
   font-size: 14px; }
+  .first_row_rigth button {
+    border: none;
+    margin: auto; }
   .first_row_rigth ul {
     list-style: none;
     display: -webkit-box;
@@ -27,6 +30,9 @@
       .first_row_rigth li a:hover {
         color: red;
         border-bottom: 2px solid red; }
+
+.navigation {
+  border: none; }
 
 .iphone {
   position: absolute;
