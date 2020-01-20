@@ -3,6 +3,7 @@ var router = express.Router();
 var { getAllapartments, getApartmentById, getLastFourApartments } = require('../db/apartments');
 
 router.get('/', function(req, res, next) {
+    console.log(req.query)
     getAllapartments(req.query)
         .then(apartments => res.status(200).json({ apartments }))
         .catch(error => res.status(500).json({ error: error.message }));

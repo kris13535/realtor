@@ -7,12 +7,19 @@ class CountryFilter extends React.Component {
         }
     };
 
+
     render() {
+
         return (
+
             <div>
-                <input type="text" name="country" onChange={this.props.handleChange()}
+                <input list="country_list" type="text" name="country" onChange={this.props.handleChange()}
                        placeholder="Enter country name"/>
-                <button className={"butt_filter_city"}><i className="fas fa-search"></i></button>
+                <datalist id="country_list">
+                    {this.props.countries.map((item, index) => {
+                        return ( <option value={item}/>)})
+                    }
+                </datalist>
             </div>
         )
     }

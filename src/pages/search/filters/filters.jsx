@@ -5,6 +5,7 @@ import PriceFilter from "./price_filter";
 import PropertyTypeFilter from "./property_type_filter";
 import BathroomFilter from "./bathroom_filter";
 import RoomFilter from "./room_filter";
+import CityFilter from "./city_filter";
 
 
 class Filters extends React.Component{
@@ -31,7 +32,8 @@ class Filters extends React.Component{
 
                         <form className="d-flex">
 
-                            <CountryFilter handleChange={() => this.handleChange}/>
+                            <CountryFilter handleChange={() => this.handleChange} countries={this.props.countries}/>
+                            <CityFilter handleChange={() => this.handleChange} cities={this.props.cities}/>
                             <PriceFilter handleChange={() => this.handleChange}/>
                             <PropertyTypeFilter/>
                             <BathroomFilter handleChange={() => this.handleChange}/>

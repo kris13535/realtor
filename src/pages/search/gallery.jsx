@@ -9,7 +9,8 @@ class Gallery extends React.Component {
         this.state = {
             apartments: [],
             filtered: "",
-            cities: this.props.cities
+            countries: [],
+            cities: [],
         }
     };
 
@@ -19,8 +20,16 @@ class Gallery extends React.Component {
 
     async getdata(){
         const data = await axios.get(`http://localhost:5000/apartments?${this.state.filtered}`);
-        this.setState({apartments:data.data.apartments});
-        console.log(this.state.apartments)
+
+        let countries_array= [];
+        let cities_array = [];
+        data.data.apartments.map(item => {return countries_array.push(item.country) , cities_array.push(item.city_name) });
+
+        this.setState({
+            apartments:data.data.apartments,
+            countries: Array.from(new Set(countries_array)),
+            cities: Array.from(new Set(cities_array)),
+        });
     }
 
     // checkRange = ( value, min, max, label) => {
@@ -72,8 +81,8 @@ class Gallery extends React.Component {
             filtered: data,
         }, () => this.getdata());
 
-        console.log(data);
-    //
+
+
 
         // let {cities, apartments, } = this.state;
         // let temp = this.state.apartments;
@@ -121,7 +130,7 @@ class Gallery extends React.Component {
         return (
             <div style={{overflow:"hidden"}}>
                 <div>
-                    <Filters updateGalleryItems={this.updateGalleryItems} filtered={this.state.filtered}/>
+                    <Filters updateGalleryItems={this.updateGalleryItems} countries={this.state.countries} cities={this.state.cities} />
                 </div>
 
                 <div className={"row m-0 d-flex justify-content-around"}>

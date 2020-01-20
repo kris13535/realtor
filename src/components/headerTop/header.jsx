@@ -1,6 +1,6 @@
 import React from 'react';
 import Main_nav_item_left from "./main_nav_item_left.jsx";
-import Main_nav_item_rigth from "./inner_nav_item_rigth";
+import Main_nav_item_rigth from "./main_nav_item_rigth";
 import "../../css/headerCss/ipone_size.css"
 import "../../css/headerCss/header.css";
 import "../../css/headerCss/inner_nav_item_rigth.css";
@@ -11,23 +11,10 @@ import {
 } from "react-router-dom";
 
 class Header extends React.Component{
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         popupOpen: false
-    //     }
-    // }
-    //
-    // togglePopup = () => {
-    //   this.setState({
-    //       popupOpen: !this.state.popupOpen
-    //   })
-    // };
+
     render() {
         return(
             <header className={"container-fluid text-align-center top-bar"}>
-
-                {/*{this.state.popupOpen && <POPUP togglePopup={this.togglePopup}/>onClick={this.togglePopup}}*/}
 
                 <div className={"first_row_left navbar navbar-expand-lg navbar-light "}>
 
