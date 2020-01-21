@@ -2,7 +2,6 @@ const crypto = require('crypto');
 const connection = require('./config');
 
 function testingIfUserExisting(data){
-   
     return new Promise((resolve, reject) => {
         connection.query(`SELECT * FROM users WHERE email = '${data}'`, (error, results, fields) => {
             if (error) {
@@ -13,7 +12,6 @@ function testingIfUserExisting(data){
         });
     });
 }
-
 
 function createNewUser(data) {
     const {first_name, last_name, email, password, phone } = data;
@@ -29,9 +27,7 @@ function createNewUser(data) {
             if (error) {
                 reject(error);
                 return;
-            }console.log(`INSERT INTO users (role_id, first_name, last_name, email, password, phone, status)
-            VALUES (${role_id}, ${first_name}, ${last_name}, ${email}, ${userPasswordHashed}, ${phone}, ${status})`);
-            console.log("tefgthrefvetbvf",results);
+            }
             resolve(results);
         });
     });

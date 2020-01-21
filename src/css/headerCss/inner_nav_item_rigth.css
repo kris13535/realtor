@@ -123,3 +123,39 @@
   border-bottom: 1px solid #c4c0c0; }
 
 /*-----------------------------------------------*/
+.logdin_ul ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start; }
+
+.logdin_ul:hover .my_sttings {
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  visibility: visible;
+  opacity: 1; }
+
+.my_sttings {
+  position: absolute;
+  z-index: 1;
+  top: 45px;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-size: 14px;
+  visibility: hidden;
+  opacity: 0;
+  padding: 10px;
+  background: white; }

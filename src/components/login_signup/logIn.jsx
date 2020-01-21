@@ -2,7 +2,6 @@ import React from 'react';
 import "../../css/login_signupCss/login_signupCSS.css"
 import validate, {field} from './validator';
 import InputErrors from "./inputErrors";
-import axios from "axios";
 import api from "../../server_api/api";
 
 class LogIn extends React.Component{
@@ -34,7 +33,6 @@ class LogIn extends React.Component{
         let isOK = true;
         for (let prop in this.state) {
             const fa = this.state[prop];
-            console.log(fa)
             const errors = validate(prop, fa.value, fa.validations);
             if (errors.length) {
                 isOK = false;

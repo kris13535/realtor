@@ -14,6 +14,7 @@ import {getDataFromServer} from "./app_data/server_data";
 import CitiesPage from "./pages/cities/cities_page";
 import Loading from "./components/loading/loading";
 import Footer from "./components/footer/footer";
+import MySpace from "./pages/my_space/my_space";
 
 class App extends React.Component{
     constructor(props){
@@ -62,6 +63,10 @@ class App extends React.Component{
                                    component={(props) => <SingleApartment apartments={apartments}
                                                                           aptId={props.match.params.id}
                                                                           cities={cities}/>}/>
+
+                            <Route path={"/MySpace"}>
+                                <MySpace/>
+                            </Route>
 
                             <Route path="/">
                                 <HomePage apartments={apartments} cities={cities} type={"apartments"} loading={this.state.loading}/>

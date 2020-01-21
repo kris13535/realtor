@@ -110,3 +110,30 @@
 
 /*-----------------------------------------------*/
 
+.logdin_ul{
+  ul {
+    list-style: none;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+}
+.logdin_ul:hover .my_sttings{
+  transition: 0.5s;
+  visibility: visible;
+  opacity: 1;
+}
+.my_sttings{
+  position: absolute;
+  z-index: 1;
+  top: 45px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  visibility: hidden;
+  opacity: 0;
+  padding: 10px;
+  background: white;
+}

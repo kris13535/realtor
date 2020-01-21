@@ -13,7 +13,6 @@ class SignUp extends React.Component{
             email: field({name: 'email', required: true, pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/}),
             password: field({name: 'password', isRequired:true, minLength: 6}),
             phone: field({name: 'phone', isRequired:true}),
-
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -71,7 +70,7 @@ class SignUp extends React.Component{
                                 </div>
                             </div>
                             <form action="#" name="registration" onSubmit={this.handleSubmit}>
-                                <div class="form-group d-flex input_div">
+                                <div className="form-group d-flex input_div">
                                     <label className={"input_label"} for="exampleInputEmail1">First Name</label>
                                     <input type="text"  name="first_name"
                                            className="form_input" id="firstname" aria-describedby="emailHelp"
@@ -79,7 +78,7 @@ class SignUp extends React.Component{
                                 </div>
                                 <div className={"error"}><InputErrors errors={this.state.first_name.errors}></InputErrors></div>
 
-                                <div class="form-group d-flex input_div">
+                                <div className="form-group d-flex input_div">
                                     <label className={"input_label"} for="exampleInputEmail1">Last Name</label>
                                     <input type="text"  name="last_name"
                                            className="form_input" id="lastname" aria-describedby="emailHelp"
@@ -87,7 +86,7 @@ class SignUp extends React.Component{
                                 </div>
                                 <div className={"error"}><InputErrors errors={this.state.last_name.errors}></InputErrors></div>
 
-                                <div class="form-group d-flex input_div">
+                                <div className="form-group d-flex input_div">
                                     <label className={"input_label"} for="exampleInputEmail1">Email address</label>
                                     <input type="email" name="email"
                                            className="form_input" id="email" aria-describedby="emailHelp"
@@ -95,7 +94,7 @@ class SignUp extends React.Component{
                                 </div>
                                 <div className={"error"}><InputErrors errors={this.state.email.errors}></InputErrors></div>
 
-                                <div class="form-group d-flex input_div">
+                                <div className="form-group d-flex input_div">
                                     <label className={"input_label"} for="exampleInputEmail1">Password</label>
                                     <input type="password" name="password" id="password"
                                            className="form_input" aria-describedby="emailHelp"
