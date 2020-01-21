@@ -82,11 +82,31 @@ function getApartmentById(apartmentId) {
     });
 }
 
+function addApartment(newApartnemt){
+    const {address, city, price, number_of_room, number_of_bath, sqft, description, sale_status, property_type, main_image} = data;
+    const availability = "available";
+    const user_id = 1;
+    const status = "pending";
+    console.log(data, userPasswordHashed);
+    return new Promise((resolve, reject) => {
+        connection.query(`INSERT INTO users (user_id, status, availability, address, city_id, price, number_of_room, number_of_bath, sqft, description, sale_status, property_type, main_image)
+                            VALUES (${user_id} ,${status},${availability}, ${address}, ${city}, ${price}, ${number_of_room}, ${number_of_bath}, ${sqft}, ${description}, ${sale_status}, ${property_type}, ${main_image})`, (error, results, fields) => {
+                                                    
+            if (error) {
+                reject(error);
+                return;
+            }
+            resolve(results);
+        });
+    });
+}
+
 
 
 module.exports = {
     getAllapartments,
     getApartmentById,
-    getLastFourApartments
+    getLastFourApartments,
+    addApartment,
 
 };

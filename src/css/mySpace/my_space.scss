@@ -1,0 +1,90 @@
+
+
+.apartment_form{
+  margin: 100px;
+  transform: translate(-25%,0%);
+  display: flex;
+  padding: 1rem;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 1.1rem;
+  outline: 0;
+  max-width: 700px;
+}
+
+.head_line_upload{
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+
+}
+
+.input_div{
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+
+}
+
+.input_label{
+  margin-right: 10px;
+  width: 200px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.tx-tfm{
+  text-transform:uppercase;
+}
+.mybtn{
+  color: white;
+  border: none;
+  border-radius:50px;
+  background: #33b358;
+
+  &:hover{
+    background: #298442;
+    color: white;
+  }
+}
+
+.form_input{
+  border-radius: 5px;
+  padding: 5px 0 5px 10px;
+  border: 1px solid #ced4da;
+  width: 250px;
+}
+
+.form_link{
+  color: #298442;
+  border: none;
+  &:hover{
+    color: #1c592c;
+
+  }
+}
+
+.error{
+  text-align: left;
+  padding-bottom: 10px;
+  padding-left: 40px;
+}
+
+form .error {
+  color: #ff0000;
+}
+
+.radio_butt{
+  input{
+    opacity: 1;
+    display: initial;
+    margin: 10px;
+
+  }
+}

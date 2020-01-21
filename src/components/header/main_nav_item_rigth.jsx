@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 import cookie from "react-cookies";
 
 
@@ -51,9 +52,14 @@ class Main_nav_item_rigth extends React.Component{
                     </div>
                 </div>
                 {this.props.user ?
-                    <ul className={"log_sign_adv"}>
-                        <li className="navigation"> hello {this.props.user[0].first_name}</li>
-                        <li className="navigation"><button  id={"loginButton"} onClick={this.onLogout()}>Log Out</button></li>
+                    <ul className={"logdin_ul"}>
+                        <li className="navigation"> Hello {this.props.user[0].first_name}</li>
+                        <li className="navigation"><button>Settings</button></li>
+                        <ul className={"my_sttings"}>
+                            <li className="navigation"><Link to={'/MySpace'}>My space</Link></li>
+                            <li className="navigation"><button onClick={this.onLogout()}>Log Out</button></li>
+                        </ul>
+
                     </ul>
                     :
                     <ul>
