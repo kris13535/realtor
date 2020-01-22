@@ -1,7 +1,7 @@
 var express = require('express');
-var multer = require('multer')
+var multer = require('multer');
 var router = express.Router();
-var { getAllapartments, getApartmentById, getLastFourApartments } = require('../db/apartments');
+var { getAllapartments, getApartmentById, getLastFourApartments, addApartment, newImagesNewApartnemt } = require('../db/apartments');
 
 const storage = multer.diskStorage({
     destination: 'images/apartment/',
@@ -9,7 +9,11 @@ const storage = multer.diskStorage({
         CDfunction(null, file.originalname)
     }
 });
+
 const upload = multer({storage:storage});
+
+
+
 
 router.get('/', function(req, res, next) {
     console.log(req.query)
@@ -31,21 +35,24 @@ router.get('/:apartmentId', function(req, res, next) {
 });
 
 
-router.post('/addApartment',upload.single('main_image'), async function(req,res,next){
+router.post('/addApartment',upload.array('images'),async function(req,res,next){
     try{
-        console.log("ffffffffffffffff", req.file.destination);
-        const main_image = req.file.destination+req.file.originalname;
-        delete req.params.main_image;
-        req.params.main_image = main_image;
-        const newApartment = await addApartment(req.params);
-        res.status(201).json({id: newApartment});
+        
+        // console.log("ffffffffffffffff", req.files.destination);
+        console.log(req.body);
+        console.log(req.files);
+    
+        const main_image = req.files[0].destination + req.files[0].originalname;
+        console.log(main_image);
+        req.body.main_image = main_image;
+        // console.log(req.body);
+        const newApartment = await addApartment(req.body);
+        const newImages = await newImagesNewApartnemt(newApartment, req.files);
+        res.status(201).json({newImages});
     }catch(error){
         throw new Error(`posting apartment failed with ${error.message}`)
     }
 });
-
-
-
 
 
 module.exports = router;

@@ -9,7 +9,7 @@ class MySpace extends React.Component{
         super(props);
         this.state = {
             address: field({name: 'address', isRequired: true}),
-            city: field({name: 'city', isRequired: true}),
+            city_id: field({name: 'city', isRequired: true}),
             price: field({name: 'price', isRequired: true}),
             number_of_room:field({name: 'number_of_room', isRequired: true}),
             number_of_bath: field({name: 'number_of_bath', isRequired: true}),
@@ -17,7 +17,11 @@ class MySpace extends React.Component{
             description: field({name: 'description', isRequired: true}),
             sale_status: '',
             property_type: '',
-            main_image: '',
+
+            main_image: {},
+            images: {},
+
+            arr_images: [0],
             city_list: [],
         };
 
@@ -30,16 +34,20 @@ class MySpace extends React.Component{
         this.setState({
                 city_list: data.data
         });
-        console.log(this.state.city_list);
+    }
+
+    city_to_cityId(){
+        this.state.city_list.map((item, index) => {
+            if(item.name === this.state.city_id.value){
+                this.state.city_id.value= item.id
+            }
+        })
     }
 
     handleChange({target:{name,value}}){
         if (name === "sale_status" || name=== "property_type"){
             this.setState({
-                [name]: {
-                    ...this.state[name],
-                    value,
-                }
+                [name]: { ...this.state[name], value,}
             });
         }
         else {
@@ -50,21 +58,31 @@ class MySpace extends React.Component{
                     value,
                     errors
                 }
-            }, () => name === "city" ? this.city_to_cityId() : null );
+            }, () => name === "city_id" ? this.city_to_cityId() : null );
         }
 
         console.log(this.state);
     }
 
-    handleChangefile =({target})=>{
-        this.setState({
-            main_image: target.files[0]
-        })
+    handleChangefile =(e)=>{
+        if (e.target.id === "main_image"){
+            this.state.arr_images[0] = e.target.files[0];
+        }
+
+        if (e.target.id === "images"){
+            this.setState({
+                images:[...e.target.files]
+            }, () =>  {for(let i = 0 ; i<this.state.images.length;i++){
+                this.state.arr_images.push(this.state.images[i])}});
+
+        }
+
     };
 
 
     handleSubmit = (event)=> {
         event.preventDefault();
+        const formData = new FormData();
         let isOK = true;
         // for (let prop in this.state) {
         //     const fa = this.state[prop];
@@ -80,23 +98,48 @@ class MySpace extends React.Component{
         //     }
         // }
         if(isOK){
-            const result = this.state;
+
+
+
             for(let prop in this.state){
-                result[prop] = this.state[prop].value;
+                // if(prop === "main_image"){
+                //     formData.append('main_image',this.state.main_image);
+                // }
+                // else if(prop === "images"){
+                //     // this.state.images.forEach(image => {formData.append('images',image)});
+                //     for(let i = 0 ; i<this.state.images.length;i++){
+                //         formData.append(`images${i}`,this.state.images[i])
+                //     }
+                // }
+                // else {
+                //     formData.append(prop,this.state[prop].value);
+                // }
+
+                if(prop === "main_image" || prop === "images" || prop === "city_list"){
+                    continue;
+                }
+                else if(prop === "arr_images"){
+                    this.state.arr_images.forEach(image => {formData.append('images',image)});
+                    // for(let i = 0 ; i<this.state.arr_images.length;i++){
+                    //     formData.append(`images${i}`,this.state.arr_images[i])
+                    // }
+                    // formData.append(prop,this.state[prop]);
+
+                }
+                else {
+                    formData.append(prop,this.state[prop].value);
+                }
             }
-            api.AddNewApartment(result)
+
+            for( var i of formData.entries()){
+                console.log(i);
+            }
+            api.AddNewApartment(formData)
                 .then(res => {console.log(res)})
 
         }
     };
 
-    city_to_cityId(){
-        this.state.city_list.map((item, index) => {
-            if(item.name === this.state.city.value){
-                this.state.city.value= item.id
-            }
-        })
-    }
 
     render() {
         console.log(this.state);
@@ -115,14 +158,14 @@ class MySpace extends React.Component{
 
                                     <div className="col-md-4 mb-3 input_div">
                                         <label className={"input_label"} htmlFor="validationDefault01">City</label>
-                                        <input className="form_input" list="city_list" type="text" name="city" placeholder="Enter city" placeholder="Enter city name" onBlur={this.handleChange}/>
+                                        <input className="form_input" list="city_list" type="text" name="city_id" placeholder="Enter city" placeholder="Enter city name" onBlur={this.handleChange}/>
                                         <datalist id="city_list">
                                             {this.state.city_list.map((item, index) => {
                                                 return ( <option value={item.name}/>)})
                                             }
                                         </datalist>
                                     </div>
-                                    <div className={"error"}><InputErrors errors={this.state.city.errors}></InputErrors></div>
+                                    <div className={"error"}><InputErrors errors={this.state.city_id.errors}></InputErrors></div>
 
 
                                     <div className="col-md-4 mb-3 input_div">
@@ -180,9 +223,13 @@ class MySpace extends React.Component{
 
                                     <div className="file btn btn-lg">
                                         <label className={"input_label"} >Upload apartment main image</label>
-                                        <input  type="file" name="file" className="form_input" placeholder="Enter description" onChange={this.handleChangefile}/>
+                                        <input id={"main_image"} type="file" name="file" className="form_input"  onChange={this.handleChangefile}/>
                                     </div>
 
+                                    <div className="file btn btn-lg">
+                                        <label className={"input_label"} >Upload apartment images</label>
+                                        <input id={"images"} type="file" name="files" className="form_input"  onChange={this.handleChangefile} multiple />
+                                    </div>
                                 </div>
                             </div>
                             <button className="btn btn-primary" type="submit">Submit form</button>

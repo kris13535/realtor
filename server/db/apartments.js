@@ -83,14 +83,31 @@ function getApartmentById(apartmentId) {
 }
 
 function addApartment(newApartnemt){
-    const {address, city, price, number_of_room, number_of_bath, sqft, description, sale_status, property_type, main_image} = data;
+    const {address, city_id, price, number_of_room, number_of_bath, sqft, description, sale_status, property_type, main_image} = newApartnemt;
     const availability = "available";
     const user_id = 1;
     const status = "pending";
-    console.log(data, userPasswordHashed);
     return new Promise((resolve, reject) => {
-        connection.query(`INSERT INTO users (user_id, status, availability, address, city_id, price, number_of_room, number_of_bath, sqft, description, sale_status, property_type, main_image)
-                            VALUES (${user_id} ,${status},${availability}, ${address}, ${city}, ${price}, ${number_of_room}, ${number_of_bath}, ${sqft}, ${description}, ${sale_status}, ${property_type}, ${main_image})`, (error, results, fields) => {
+        connection.query(`INSERT INTO apartments ( status, user_id, availability, address, city_id, price, number_of_room, number_of_bath, sqft, description, sale_status, property_type, main_image)
+                            VALUES ('${status}','${user_id}' ,'${availability}', '${address}', '${city_id}', '${price}', '${number_of_room}', '${number_of_bath}', '${sqft}', '${description}', '${sale_status}', '${property_type}', '${main_image}')`, (error, results, fields) => {
+                                                    
+            if (error) {
+                reject(error);
+                return;
+            }
+            resolve(results.insertId);
+        });
+    });
+}
+
+function newImagesNewApartnemt(apartnemtId, imagesArray){
+    return new Promise((resolve, reject) => {
+        let values = '';
+        imagesArray.map(img => values +=(`(${apartnemtId},${" '"+img.destination+img.originalname+" '"}),`));
+        console.log(values);
+        values = values.slice(0,values.length-1);
+        connection.query(`INSERT INTO images (apartment_id, url)
+                            VALUES ${values}`, (error, results, fields) => {
                                                     
             if (error) {
                 reject(error);
@@ -103,10 +120,11 @@ function addApartment(newApartnemt){
 
 
 
+
 module.exports = {
     getAllapartments,
     getApartmentById,
     getLastFourApartments,
     addApartment,
-
+    newImagesNewApartnemt,
 };

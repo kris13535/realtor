@@ -30,6 +30,7 @@ const api = {
     },
 
     async AddNewApartment(newApartmentData){
+        console.log(newApartmentData);
         try{
             const data = await fetcher.post(`/apartments/addApartment`, newApartmentData);
             // console.log(data);
