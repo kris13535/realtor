@@ -11,7 +11,7 @@ import HomeFamilyPart from "./home_family_part";
 import LinksNAR from "./links_NAR";
 import RentingInsidersGuide from "./renting_insiders_guide";
 import HomeAD from "./home_ad";
-import axios from "axios";
+import api from "../../server_api/api";
 
 
 class HomePage extends React.Component {
@@ -27,7 +27,7 @@ class HomePage extends React.Component {
         this.getData();
     };
     async getData(){
-        const data = await axios.get(`http://localhost:5000/apartments/fourLastApartmentsBydate`);
+        const data = await api.getLastFourApartments();
         this.setState({apartments_4:data.data.apartments,loading: false});
     }
 
@@ -57,13 +57,9 @@ class HomePage extends React.Component {
                 <HomeMainImage/>
                 <ListingsInSanFrancisco/>
                 <HomeApartmentsCard {...this.props} apartments_4={this.state.apartments_4} />
-                <StatisticsData/>
                 <HomeTrendsImage/>
-                <HomeCitiesCard {...this.props} cities_4={cities_4} />
+                <StatisticsData/>
                 <HomeFamilyPart/>
-                <LinksNAR/>
-                <RentingInsidersGuide/>
-                <HomeAD/>
             </div>
         )
     }

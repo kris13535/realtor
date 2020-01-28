@@ -11,7 +11,7 @@ class PriceFilter extends React.Component {
         return (
             <div className="d-none d-lg-flex" id="dropdown_buttons">
                 <div className="dropdown dropdown_button">
-                    <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    <button className="btn btn-secondary dropdown-toggle" type="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         price
                     </button>

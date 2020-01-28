@@ -11,7 +11,11 @@ import CityFilter from "./city_filter";
 class Filters extends React.Component{
     constructor(props) {
         super(props);
-        this.state = { data : {}}
+        this.state = {
+            data : {},
+            country: 1,
+        }
+
     }
 
     handleChange = (e) => {
@@ -22,7 +26,20 @@ class Filters extends React.Component{
             data : test
         });
         this.props.updateGalleryItems(this.state.data);
+
+        if(name === "country"){
+            this.setState({
+                country : value,
+            })
+        }
     };
+
+    handleNoFilters = () => {
+        this.setState({
+            data: {},
+        }, () => {this.props.updateGalleryItems(this.state.data);})
+    };
+
 
     render() {
         return(
@@ -31,17 +48,15 @@ class Filters extends React.Component{
                     <div className={"search_button"}>
 
                         <form className="d-flex">
-
                             <CountryFilter handleChange={() => this.handleChange} countries={this.props.countries}/>
-                            <CityFilter handleChange={() => this.handleChange} cities={this.props.cities}/>
+                            <CityFilter handleChange={() => this.handleChange} country={this.state.country}/>
                             <PriceFilter handleChange={() => this.handleChange}/>
-                            <PropertyTypeFilter/>
+                            <PropertyTypeFilter handleChange={() => this.handleChange}/>
                             <BathroomFilter handleChange={() => this.handleChange}/>
                             <RoomFilter handleChange={() => this.handleChange}/>
 
-
                             <div className={"d-none d-lg-flex no_filters"}>
-                                <button name="no_filters" value={true} onClick={this.handleChange}>All apartments</button>
+                                <button name="no_filters" onClick={this.handleNoFilters}>All apartments</button>
                             </div>
 
                         </form>

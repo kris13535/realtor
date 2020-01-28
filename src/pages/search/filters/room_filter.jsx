@@ -10,7 +10,7 @@ class RoomFilter extends React.Component {
     render() {
         return (
             <div className="d-lg-flex dropdown dropdown_button">
-                <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button className="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Rooms
                 </button>
 

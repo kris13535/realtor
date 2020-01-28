@@ -3,7 +3,7 @@ class CustomersBuilder {
         this.query = 'SELECT ap.* ,ap.id,c.name `city_name`,countries.`name` country,group_concat(images.url) images,concat(u.first_name,u.last_name) onwer,u.email\
                             FROM apartments ap join cities c ON ap.city_id = c.id\
                             JOIN countries  ON c.country_id = countries.id \
-                            JOIN images ON ap.id = images.apartment_id\
+                            LEFT JOIN images ON ap.id = images.apartment_id\
                             JOIN users u ON ap.user_id = u.id\
                             WHERE 1 ';
         this.params = [];
@@ -20,21 +20,21 @@ class CustomersBuilder {
     country(countryName) {
         if (countryName) {
             this.params.push('%' + countryName + '%')
-            this.query += 'AND countries.name like ?'
+            this.query += 'AND countries.name like ? '
         }
         return this;
     }
     city(cityName) {
         if (cityName) {
             this.params.push('%' + cityName + '%')
-            this.query += 'AND c.name like  ?'
+            this.query += `AND c.name like  ? `
         }
         return this;
     }
     property_type(property) {
         if (property) {
             this.params.push(property)
-            this.query += 'AND property = ap.address'
+            this.query += 'AND property_type = ? '
         }
         return this;
     }

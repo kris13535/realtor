@@ -1,6 +1,25 @@
 import fetcher from "./fetcher";
 
 const api = {
+
+    async getLastFourApartments(){
+        try{
+            const data = await fetcher.get(`/apartments/fourLastApartmentsBydate`);
+            return data
+        }  catch (error) {
+            console.log(error);
+        }
+    },
+
+    async getfilteredApartments(filtered){
+        try{
+            const data = await fetcher.get(`/apartments?${filtered}`);
+            return data
+        }  catch (error) {
+            console.log(error);
+        }
+    },
+
     async loginUser(userData){
         try{
             const data = await fetcher.post(`/login`, userData);
@@ -15,6 +34,16 @@ const api = {
             const data = await fetcher.post(`/signup`, userData);
             // console.log(data);
         }  catch (error) {
+            console.log(error);
+        }
+    },
+
+    async getCitiesListByCountry(country){
+        try{
+            const data = await fetcher.get(`/cities/ByCountry/${country}`);
+            return data.data;
+            // console.log(data);
+        }catch (error) {
             console.log(error);
         }
     },
