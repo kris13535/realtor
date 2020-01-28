@@ -37,13 +37,12 @@ router.get('/:apartmentId', function(req, res, next) {
 
 router.post('/addApartment',upload.array('images'),async function(req,res,next){
     try{
-        
         // console.log("ffffffffffffffff", req.files.destination);
-        console.log(req.body);
-        console.log(req.files);
+        // console.log(req.body);
+        // console.log(req.files);
     
         const main_image = req.files[0].destination + req.files[0].originalname;
-        console.log(main_image);
+        // console.log(main_image);
         req.body.main_image = main_image;
         // console.log(req.body);
         const newApartment = await addApartment(req.body);

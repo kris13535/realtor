@@ -542,31 +542,13 @@
 /*--------------------------------------------*/
 .bottom_part {
   background-color: #3B3B3B;
-  padding: 20px 0 0 110px; }
+  padding: 0 0 0 110px; }
   .bottom_part a {
     color: white;
     padding: 0 5px 0px 5px;
     text-decoration: none; }
-  .bottom_part .bottom_part_a {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap; }
-    .bottom_part .bottom_part_a a {
-      color: white;
-      padding: 0 5px 0px 5px;
-      text-decoration: none;
-      font-size: 14px; }
-  .bottom_part h5 {
-    padding-left: 5px;
-    padding-top: 25px;
-    padding-bottom: 10px;
-    font-size: 13px;
-    color: white;
-    font-weight: bold; }
   .bottom_part p {
-    padding: 30px 0 20px 0;
+    padding: 10px 0 20px 0;
     color: #b2b2b2;
     font-size: 11px; }
     .bottom_part p a {
