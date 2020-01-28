@@ -68,7 +68,7 @@ class App extends React.Component{
                                 <MySpace/>
                             </Route>
 
-                            <Route path="/">
+                            <Route path="/" exact>
                                 <HomePage apartments={apartments} cities={cities} type={"apartments"} loading={this.state.loading}/>
                             </Route>
 

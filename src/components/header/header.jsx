@@ -19,11 +19,11 @@ class Header extends React.Component{
         this.state = {
             login: false,
             singUp: false,
+
         };
     }
     componentWillMount() {
-        this.state = { user: cookie.load('login_user') };
-        console.log(cookie.load('login_user'));
+        this.state = {user: cookie.load('login_user') };
     }
 
     loginHandelClick = () => {
@@ -46,8 +46,15 @@ class Header extends React.Component{
     handleChildClick = (e) => {
         e.stopPropagation();
     };
+
+    setUser(){
+        this.setState({
+            user: cookie.load("login_user")
+        });
+    };
+
     render() {
-        console.log(this.state);
+        // console.log(this.state);
         return(
             <header className={"container-fluid text-align-center top-bar"}>
 
@@ -70,7 +77,7 @@ class Header extends React.Component{
                 {this.state.login ?
                     <div style={{ position: 'absolute', top: '0' }} onClick={() => this.loginHandelClick()} >
                         <div id={"login"} className="container-fluid login_or_singUp_page">
-                            <LogIn handleChildClick={() => this.handleChildClick} activateSignupAndLogin={() => this.activateSignupAndLogin} loginHandelClick={() => this.loginHandelClick()} />
+                            <LogIn handleChildClick={() => this.handleChildClick} activateSignupAndLogin={() => this.activateSignupAndLogin} setUser={() => this.setUser()} loginHandelClick={() => this.loginHandelClick()} />
                         </div>
                     </div>
                     : null

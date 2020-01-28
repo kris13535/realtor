@@ -7,6 +7,7 @@
   button{
     border: none;
     margin: auto;
+    align-items: stretch;
   }
 
   ul {
@@ -16,7 +17,6 @@
     justify-content: flex-start;
   }
   li {
-
     border-bottom: 2px solid transparent;
     a{
       padding: 13px 10px;
@@ -78,7 +78,6 @@
   }
 }
 
-
 .advertise{
   border-left: 1px solid gray;
 }
@@ -125,15 +124,19 @@
   opacity: 1;
 }
 .my_sttings{
+  padding-top: 15px;
+  background: transparent;
   position: absolute;
   z-index: 1;
-  top: 45px;
+  top: 33px;
   right: 0;
   display: flex;
   flex-direction: column;
   font-size: 14px;
   visibility: hidden;
   opacity: 0;
-  padding: 10px;
-  background: white;
+  li{
+    border: none;
+  }
+
 }

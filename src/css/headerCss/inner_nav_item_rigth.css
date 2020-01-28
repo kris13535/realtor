@@ -9,7 +9,10 @@
   font-size: 14px; }
   .first_row_rigth button {
     border: none;
-    margin: auto; }
+    margin: auto;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch; }
   .first_row_rigth ul {
     list-style: none;
     display: -webkit-box;
@@ -143,9 +146,11 @@
   opacity: 1; }
 
 .my_sttings {
+  padding-top: 15px;
+  background: transparent;
   position: absolute;
   z-index: 1;
-  top: 45px;
+  top: 33px;
   right: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -156,6 +161,6 @@
   flex-direction: column;
   font-size: 14px;
   visibility: hidden;
-  opacity: 0;
-  padding: 10px;
-  background: white; }
+  opacity: 0; }
+  .my_sttings li {
+    border: none; }
