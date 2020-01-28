@@ -20,6 +20,15 @@ const api = {
         }
     },
 
+    async getMyApartments(){
+        try{
+            const data = await fetcher.get(`/apartments/my/apartments`);
+            return data
+        }  catch (error) {
+            console.log(error);
+        }
+    },
+
     async loginUser(userData){
         try{
             const data = await fetcher.post(`/login`, userData);

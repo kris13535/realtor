@@ -23,7 +23,8 @@ class Header extends React.Component{
         };
     }
     componentWillMount() {
-        this.state = {user: cookie.load('login_user') };
+        this.state = ({user: cookie.load('login_user')});
+        console.log(cookie.load('login_user'));
     }
 
     loginHandelClick = () => {
