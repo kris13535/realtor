@@ -14,7 +14,8 @@ import {getDataFromServer} from "./app_data/server_data";
 import CitiesPage from "./pages/cities/cities_page";
 import Loading from "./components/loading/loading";
 import Footer from "./components/footer/footer";
-import My from "./pages/my_space/my";
+import MySpace from "./pages/my_space/my_space";
+
 
 class App extends React.Component{
     constructor(props){
@@ -65,7 +66,7 @@ class App extends React.Component{
                                                                           cities={cities}/>}/>
 
                             <Route path={"/My"}>
-                                <My/>
+                                <MySpace/>
                             </Route>
 
                             <Route path="/" exact>

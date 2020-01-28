@@ -27,6 +27,13 @@ class ApartmentCard extends React.Component{
                         <span>{address}</span>
                         <Link to={`/CitiesPage`}><span>{`, ${city_name}`}</span></Link>
                     </div>
+
+                    {this.props.delete_apartment &&
+                    <div>
+                        <button  id={"UploadNewApartment"} onClick={this.uploadHandelClick}> Delete Apartment </button>
+                    </div>
+                    }
+
                 </div>
             </div>
 

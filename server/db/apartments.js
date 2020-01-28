@@ -30,6 +30,7 @@ function getAllapartments({
                 .minBath(minBath)
                 .maxBath(maxBath)
                 .sale_status(sale_status)
+                .status('pending')
                 .group_by()
                 .limit()
                 .build();
@@ -49,7 +50,7 @@ function getAllapartments({
 function getLastFourApartments() {
     return new Promise((resolve, reject) => {
         try {
-            const {query, params} = Builder.allApartments().group_by().build();
+            const {query, params} = Builder.allApartments().status('pending').group_by().build();
             let que = query;
             que += ' ORDER BY created_on DESC LIMIT 0, 4 ';
             connection.query(que, params, (error, results, fields) => {

@@ -5,7 +5,7 @@ import Card from "../../components/card/card";
 import UplodeNewApartment from "./uplode_new_apartment";
 
 
-class My extends React.Component{
+class MySpace extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -40,14 +40,19 @@ class My extends React.Component{
     render() {
         console.log(this.state);
         return (
-            <div className={"my_space row"}>
-                <div className="col-md-5 mx-auto my_form_background" onClick={this.uploadHandelClick}>
-                    {this.state.uploadButton ?
-                        <UplodeNewApartment handleChildClick={this.handleChildClick}/>
-                        :
-                        <button  id={"UploadNewApartment"} onClick={this.uploadHandelClick}>Upload new apartment</button>
-                    }
+            <div className={"my_space"}>
 
+
+                <div className={"open_uplode_button"}>
+                    <button  id={"UploadNewApartment"} onClick={this.uploadHandelClick}>Upload new apartment</button>
+                </div>
+
+                <div  onClick={this.uploadHandelClick}>
+                    {this.state.uploadButton &&
+                        <div className=" my_form_background">
+                            <UplodeNewApartment handleChildClick={this.handleChildClick}/>
+                        </div>
+                    }
                 </div>
 
                 <div className={"container"}>
@@ -55,7 +60,7 @@ class My extends React.Component{
                     <div className={"row m-0 d-flex justify-content-around"}>
                         {this.state.apartments.map((item, i) => {
                             return (
-                                <Card {...item} type={"apartments"} key={i}/>
+                                <Card {...item} type={"apartments"} delete_apartment={true} key={i}/>
                             )
                         })}
                     </div>
@@ -66,4 +71,4 @@ class My extends React.Component{
     }
 }
 
-export default My;
+export default MySpace;
