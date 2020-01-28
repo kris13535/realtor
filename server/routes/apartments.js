@@ -1,7 +1,7 @@
 var express = require('express');
 var multer = require('multer');
 var router = express.Router();
-var { getAllapartments, getApartmentById, getLastFourApartments, addApartment, newImagesNewApartnemt } = require('../db/apartments');
+var { getAllapartments, getApartmentById, getLastFourApartments, addApartment, newImagesNewApartnemt, getMyapartments } = require('../db/apartments');
 
 const storage = multer.diskStorage({
     destination: 'images/apartment/',
@@ -16,7 +16,7 @@ const upload = multer({storage:storage});
 
 
 router.get('/', function(req, res, next) {
-    console.log(req.query)
+    // console.log(req.query)
     getAllapartments(req.query)
         .then(apartments => res.status(200).json({ apartments }))
         .catch(error => res.status(500).json({ error: error.message }));
@@ -31,6 +31,13 @@ router.get('/fourLastApartmentsBydate', function(req, res, next) {
 router.get('/:apartmentId', function(req, res, next) {
     getApartmentById(req.params.apartmentId)
         .then(apartments => res.status(200).json({apartments}))
+        .catch(error => res.status(500).json({ error: error.message }));
+});
+
+router.get('/my/apartments', function(req, res, next) {
+    console.log("dfsffsddf",);
+    getMyapartments(req.cookies.login_user[0].email)
+        .then(apartments => res.status(200).json({ apartments }))
         .catch(error => res.status(500).json({ error: error.message }));
 });
 

@@ -17,6 +17,13 @@ class CustomersBuilder {
         }
         return this;
     }
+    userId(user) {
+        if (user) {
+            this.params.push(user)
+            this.query += 'AND email = ? '
+        }
+        return this;
+    }
     country(countryName) {
         if (countryName) {
             this.params.push('%' + countryName + '%')

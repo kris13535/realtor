@@ -65,6 +65,23 @@ function getLastFourApartments() {
     });
 }
 
+function getMyapartments(user) {
+    return new Promise((resolve, reject) => {
+        try {
+            const {query, params} = Builder.allApartments().userId(user).group_by().build();
+            connection.query(query, params, (error, results, fields) => {
+                if (error) {
+                    reject(error);
+                    return;
+                }
+                resolve(results);
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    });
+}
+
 function getApartmentById(apartmentId) {
     return new Promise((resolve, reject) => {
         try {
@@ -125,6 +142,7 @@ module.exports = {
     getAllapartments,
     getApartmentById,
     getLastFourApartments,
+    getMyapartments,
     addApartment,
     newImagesNewApartnemt,
 };
