@@ -22,7 +22,7 @@ class Card extends React.Component{
                     <ApartmentCard main_image={main_image} city_name={city_name} price={price}
                     description={description} number_of_bath={number_of_bath}
                     number_of_room={number_of_room} sqft={sqft} address={address} heart={heart}
-                    id={this.props.id}/>
+                    id={this.props.id} delete_apartment={this.props.delete_apartment}/>
                 }
             </div>
         )

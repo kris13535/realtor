@@ -4,7 +4,7 @@ const navigation=[
         inner_menu: [
             [{title: 'Homes For sale', href: ""}, {title: 'Senior Housing', href: "http//new-york.com"}],
             [{title: 'Homes Value', href: ""}, {title: 'Propery Records', href: "http//new-york.com"}, {title: 'Home Buying Tips', href: "http//new-york.com"}, {title: 'Home Selling Tips', href: "http//new-york.com"}],
-            [{title: 'Home Buying Tips', href: ""}, {title: 'Home Buyers Reveal: What I Wish I Had Known Before Buying My First Home', href: "http//new-york.com"}, {title: 'More Home Buying Insights', href: "http//new-york.com"}, {title: 'Success Stories', href: "http//new-york.com"}],
+            [{title: 'Home Buying Tips', href: ""}, {title: 'Home Buyers Reveal: What I Wish I Had Known Before Buying My_space First Home', href: "http//new-york.com"}, {title: 'More Home Buying Insights', href: "http//new-york.com"}, {title: 'Success Stories', href: "http//new-york.com"}],
         ]
     },
     {
@@ -19,7 +19,7 @@ const navigation=[
             ],
             [
                 {title: 'Home Buying Tips', href: ""},
-                {title: 'Home Buyers Reveal: What I Wish I Had Known Before Buying My First Home', href: "http//new-york.com"
+                {title: 'Home Buyers Reveal: What I Wish I Had Known Before Buying My_space First Home', href: "http//new-york.com"
                 },
                 {title: 'More Home Buying Insights', href: "http//new-york.com"},
                 {title: 'Success Stories', href: "http//new-york.com"}
@@ -41,7 +41,7 @@ const navigation=[
             ],
             [
                 {title: 'Home Buying Tips', href: ""},
-                {title: 'Home Buyers Reveal: What I Wish I Had Known Before Buying My First Home', href: "http//new-york.com"
+                {title: 'Home Buyers Reveal: What I Wish I Had Known Before Buying My_space First Home', href: "http//new-york.com"
                 },
                 {title: 'More Home Buying Insights', href: "http//new-york.com"},
                 {title: 'Success Stories', href: "http//new-york.com"}
@@ -66,7 +66,7 @@ const navigation=[
                 {title: 'Refinance Calculator', href: "http//new-york.com"},
                 {title: 'How Much House Can I Afford', href: "http//new-york.com"},
                 {title: 'Rent vs. Buy', href: "http//new-york.com"},
-                {title: 'Price Perfect℠ Find My Buying Power', href: "http//new-york.com"},
+                {title: 'Price Perfect℠ Find My_space Buying Power', href: "http//new-york.com"},
 
             ],
             [
@@ -102,7 +102,7 @@ const navigation=[
         ]
     },
     {
-        label: 'My Home',
+        label: 'My_space Home',
         inner_menu: [],
 
     },
