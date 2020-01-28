@@ -79,8 +79,6 @@ class Gallery extends React.Component {
     };
 
     render() {
-        console.log(this.state);
-
         const {apartments} = this.state;
         return (
             <div style={{overflow:"hidden"}}>
@@ -100,10 +98,7 @@ class Gallery extends React.Component {
                     <div className={"d-none d-lg-flex no_filters"}>
                         <button  onClick={this.allApartments}>no filtered apartments is available</button>
                     </div>
-
                 }
-
-
             </div>
         )
     }

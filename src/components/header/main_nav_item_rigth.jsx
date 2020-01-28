@@ -1,21 +1,21 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 import cookie from "react-cookies";
-
-
+import {withRouter} from 'react-router-dom';
+import {Link} from "react-router-dom";
 
 class Main_nav_item_rigth extends React.Component{
-
+    constructor(props){
+        super(props);
+    }
     onLogout() {
-        cookie.remove('login_user', { path: '/' })
+        cookie.remove('login_user', { path: '/' });
+        // this.props.history.push('/');
     }
 
     render() {
         return(
             <div className={"first_row_rigth"}>
-
                 <div className={"d-none d-lg-flex iphone_img"}>
-
                     <div className={"ipone_img_logo"} ><a href="/"><img src={"images/iphone.png"} alt={"/"}/></a></div>
 
                     <div className={"iphone"}>
@@ -57,7 +57,7 @@ class Main_nav_item_rigth extends React.Component{
                         <li className="navigation"><button>Settings</button></li>
                         <ul className={"my_sttings"}>
                             <li className="navigation"><Link to={'/MySpace'}>My space</Link></li>
-                            <li className="navigation"><button onClick={this.onLogout()}>Log Out</button></li>
+                            <li className="navigation"><button onClick={this.onLogout}>Log Out</button></li>
                         </ul>
 
                     </ul>
@@ -74,4 +74,4 @@ class Main_nav_item_rigth extends React.Component{
     }
 }
 
-export default Main_nav_item_rigth;
+export default withRouter(Main_nav_item_rigth);

@@ -1,4 +1,6 @@
 import React from 'react';
+import {Redirect, withRouter} from 'react-router-dom';
+
 import "../../css/login_signupCss/login_signupCSS.css"
 import validate, {field} from './validator';
 import InputErrors from "./inputErrors";
@@ -9,7 +11,7 @@ class LogIn extends React.Component{
         super(props);
         this.state = {
             email: field({name: 'email', isRequired: true, pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/}),
-            password: field({name: 'password', isRequired:true, minLength: 6}),
+            password: field({name: 'password', isRequired:true, minLength: 6})
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -26,9 +28,10 @@ class LogIn extends React.Component{
                 errors
             }
         });
+        console.log(this.props);
     }
 
-    handleSubmit = (event)=> {
+    handleSubmit (event) {
         event.preventDefault();
         let isOK = true;
         for (let prop in this.state) {
@@ -50,7 +53,11 @@ class LogIn extends React.Component{
                 result[prop] = this.state[prop].value;
             }
             api.loginUser(result)
-                .then(res => {console.log(res)})
+                .then(res => {
+                    this.props.loginHandelClick();
+                    this.props.setUser();
+                    this.props.history.push('/')
+                })
 
         }
     };
@@ -105,4 +112,4 @@ class LogIn extends React.Component{
     }
 }
 
-export default LogIn;
+export default withRouter(LogIn);
