@@ -4,9 +4,13 @@ import '../../css/cardCss/card.css';
 
 
 class ApartmentCard extends React.Component{
+
+    deleteApartment = () => {
+        this.props.deleteApartmentHandelClick(this.props.id)
+    };
+
     render(){
         const {main_image, city_name, price, description, number_of_bath, number_of_room, sqft, address, heart} = this.props;
-
         return(
             <div className={"box"}>
                 <div className={"card shadow_box"}>
@@ -30,7 +34,7 @@ class ApartmentCard extends React.Component{
 
                     {this.props.delete_apartment &&
                     <div>
-                        <button  id={"UploadNewApartment"} onClick={this.uploadHandelClick}> Delete Apartment </button>
+                        <button onClick={this.deleteApartment}> Delete Apartment </button>
                     </div>
                     }
 

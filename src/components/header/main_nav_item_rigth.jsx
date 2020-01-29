@@ -9,7 +9,7 @@ class Main_nav_item_rigth extends React.Component{
     }
     onLogout() {
         cookie.remove('login_user', { path: '/' });
-        // this.props.history.push('/');
+        this.props.history.push('/');
     }
 
     render() {
@@ -53,7 +53,7 @@ class Main_nav_item_rigth extends React.Component{
                 </div>
                 {this.props.user ?
                     <ul className={"logdin_ul"}>
-                        <li className="navigation"> Hello {this.props.user.first_name}</li>
+                        <li className="navigation"> Hello {this.props.user[0].first_name}</li>
                         <li className="navigation"><button>Settings</button></li>
                         <ul className={"my_sttings"}>
                             <li className="navigation"><Link to={'/My'}>My space</Link></li>

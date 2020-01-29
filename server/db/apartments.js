@@ -69,7 +69,7 @@ function getLastFourApartments() {
 function getMyapartments(user) {
     return new Promise((resolve, reject) => {
         try {
-            const {query, params} = Builder.allApartments().userId(user).group_by().build();
+            const {query, params} = Builder.allApartments().status('pending').userId(user).group_by().build();
             connection.query(query, params, (error, results, fields) => {
                 if (error) {
                     reject(error);
@@ -82,6 +82,19 @@ function getMyapartments(user) {
         }
     });
 }
+
+function deleteApartment(apartnemtId){
+    return new Promise((resolve, reject) => {
+        connection.query(`UPDATE apartments SET status ='removed' WHERE id = ? ;`,[apartnemtId], (error, results, fields) => {                          
+            if (error) {
+                reject(error);
+                return;
+            }
+            resolve(results.insertId);
+        });
+    });
+}
+
 
 function getApartmentById(apartmentId) {
     return new Promise((resolve, reject) => {
@@ -144,6 +157,7 @@ module.exports = {
     getApartmentById,
     getLastFourApartments,
     getMyapartments,
+    deleteApartment,
     addApartment,
     newImagesNewApartnemt,
 };
