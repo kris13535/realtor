@@ -2,6 +2,15 @@ import fetcher from "./fetcher";
 
 const api = {
 
+    async getLengthApartmentsArray(){
+        try{
+            const data = await fetcher.get(`/apartments/length`);
+            return data.data
+        }  catch (error) {
+            console.log(error);
+        }
+    },
+
     async getLastFourApartments(){
         try{
             const data = await fetcher.get(`/apartments/fourLastApartmentsBydate`);

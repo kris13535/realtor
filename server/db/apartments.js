@@ -1,6 +1,20 @@
 const connection = require('./config');
 const Builder = require('./builders/apartmentsBuilder');
 
+
+
+function getApartmentsLength(apartnemtId){
+    return new Promise((resolve, reject) => {
+        connection.query(`SELECT count(*) as length FROM apartments ;`, (error, results, fields) => {                          
+            if (error) {
+                reject(error);
+                return;
+            }
+            resolve(results[0]);
+        });
+    });
+}
+
 function getAllapartments({
     apartmentId,
     property_type,
@@ -14,7 +28,7 @@ function getAllapartments({
     maxBath,
     sale_status,
     page = 1,
-    size = 12
+    size = 9999999,
 }) {
     return new Promise((resolve, reject) => {
         try {
@@ -39,7 +53,7 @@ function getAllapartments({
                     reject(error);
                     return;
                 }
-                console.log(query);
+                // console.log(query);
                 resolve(results);
             });
         } catch (error) {
@@ -153,6 +167,7 @@ function newImagesNewApartnemt(apartnemtId, imagesArray){
 
 
 module.exports = {
+    getApartmentsLength,
     getAllapartments,
     getApartmentById,
     getLastFourApartments,

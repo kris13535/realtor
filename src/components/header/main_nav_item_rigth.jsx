@@ -7,10 +7,12 @@ class Main_nav_item_rigth extends React.Component{
     constructor(props){
         super(props);
     }
-    onLogout() {
+    onLogout = () => {
+
         cookie.remove('login_user', { path: '/' });
+        this.props.setUser();
         this.props.history.push('/');
-    }
+    };
 
     render() {
         return(

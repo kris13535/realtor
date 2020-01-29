@@ -1,7 +1,7 @@
 var express = require('express');
 var multer = require('multer');
 var router = express.Router();
-var { getAllapartments, getApartmentById, getLastFourApartments, addApartment, newImagesNewApartnemt, getMyapartments, deleteApartment } = require('../db/apartments');
+var { getAllapartments, getApartmentById, getLastFourApartments, addApartment, newImagesNewApartnemt, getMyapartments, deleteApartment, getApartmentsLength } = require('../db/apartments');
 
 const storage = multer.diskStorage({
     destination: 'images/apartment/',
@@ -13,11 +13,16 @@ const storage = multer.diskStorage({
 const upload = multer({storage:storage});
 
 
-
-
 router.get('/', function(req, res, next) {
     getAllapartments(req.query)
         .then(apartments => res.status(200).json({ apartments }))
+        .catch(error => res.status(500).json({ error: error.message }));
+});
+
+
+router.get('/length', function(req, res, next) {
+    getApartmentsLength()
+        .then(length => res.status(200).json({ length }))
         .catch(error => res.status(500).json({ error: error.message }));
 });
 
