@@ -1,4 +1,6 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
+
 import validate, {field} from './validator';
 import InputErrors from './inputErrors';
 import "../../css/login_signupCss/login_signupCSS.css"
@@ -54,7 +56,14 @@ class SignUp extends React.Component{
                 result[prop] = this.state[prop].value;
             }
             api.SignupUser(result)
-                .then(res => {console.log(res)})
+                .then(res => {
+                    console.log(res);
+                    this.props.signUpHandelClick();
+                    this.props.setUser();
+                    this.props.history.push('/');
+                    this.props.loginHandelClick();
+
+                })
         }
     };
 
@@ -127,4 +136,4 @@ class SignUp extends React.Component{
     }
 }
 
-export default SignUp;
+export default withRouter(SignUp);

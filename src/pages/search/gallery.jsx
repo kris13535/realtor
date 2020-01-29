@@ -2,16 +2,29 @@ import React from 'react';
 import Card from "../../components/card/card.jsx";
 import Filters from "./filters/filters";
 import api from "../../server_api/api";
+import Pagination from "../../components/pagination/pagination";
 
 class Gallery extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            len_apartments: 0,
+            page: 1,
             apartments: [],
             filtered: "",
             countries: [],
+
         }
     };
+
+    // async componentWillMount() {
+    //     const data = await api.getLengthApartmentsArray();
+    //     this.setState({
+    //         len_apartments: data.length.length,
+    //     });
+    //     console.log(this.state.len_apartments);
+    // }
+
 
     async componentDidMount(){
         const data = await this.getdata();
@@ -27,9 +40,20 @@ class Gallery extends React.Component {
         this.setState({
             apartments:data.data.apartments,
         });
-
+        this.setState({
+            len_apartments: this.state.apartments.length,
+        });
+        console.log(this.state.len_apartments);
         return data
     }
+
+    pageHandelClick = (page) => {
+        this.setState({
+            page: page,
+        });
+
+        console.log(this.state.filtered);
+    };
 
     updateGalleryItems  = (data) => {
 
@@ -41,12 +65,16 @@ class Gallery extends React.Component {
        }
 
        data = this.dataToString(data);
+       console.log(data);
+
         this.setState({
             filtered: data,
         });
         this.setState({
             apartments: this.state.apartments,
         }, () => this.getdata());
+
+        console.log(this.state.apartments)
     };
 
     data_price_multiplication = (price) => {
@@ -79,7 +107,8 @@ class Gallery extends React.Component {
     };
 
     render() {
-        const {apartments} = this.state;
+        const {apartments, len_apartments, page} = this.state;
+        console.log("ferwregregvreg", apartments.slice(this.state.page-1*12,(this.state.page-1*12)+12));
         return (
             <div style={{overflow:"hidden"}}>
                 <div>
@@ -87,13 +116,23 @@ class Gallery extends React.Component {
                 </div>
 
                 {apartments.length ?
-                    <div className={"row m-0 d-flex justify-content-around"}>
-                        {apartments.map((item, i) => {
-                            return (
-                                <Card {...item} type={this.props.type} key={i}/>
-                            )
-                        })}
+                    <div>
+                        <div className={"row m-0 d-flex justify-content-around"}>
+                            {apartments.slice((page-1)*12, ((page-1)*12)+12).map((item, i) => {
+                                return (
+                                    <Card {...item} type={this.props.type} key={i}/>
+                                )
+                            })}
+                        </div>
+
+                            {len_apartments > 12 &&
+                                <div className={"pagination"}>
+                                    <Pagination len_apartments={this.state.len_apartments}
+                                                pageHandelClick={this.pageHandelClick}/>
+                                </div>
+                            }
                     </div>
+
                 :
                     <div className={"d-none d-lg-flex no_filters"}>
                         <button  onClick={this.allApartments}>no filtered apartments is available</button>

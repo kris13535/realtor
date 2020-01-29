@@ -54,6 +54,7 @@ class LogIn extends React.Component{
             }
             api.loginUser(result)
                 .then(res => {
+                    console.log(res);
                     this.props.loginHandelClick();
                     this.props.setUser();
                     this.props.history.push('/')

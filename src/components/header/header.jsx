@@ -73,6 +73,7 @@ class Header extends React.Component{
                 <div>
                     <Main_nav_item_rigth loginHandelClick={() => this.loginHandelClick}
                                          signUpHandelClick={() => this.signUpHandelClick}
+                                         setUser={() => this.setUser()}
                                          user={this.state.user}/>
                 </div>
                 {this.state.login ?
@@ -86,7 +87,7 @@ class Header extends React.Component{
                 {this.state.singUp ?
                     <div style={{ position: 'absolute', top: '0' }} onClick={this.signUpHandelClick}>
                         <div className="container-fluid login_or_singUp_page"  >
-                            <SignUp handleChildClick={() => this.handleChildClick} activateSignupAndLogin={() => this.activateSignupAndLogin} />
+                            <SignUp handleChildClick={() => this.handleChildClick} activateSignupAndLogin={() => this.activateSignupAndLogin} setUser={() => this.setUser()} signUpHandelClick={() => this.signUpHandelClick()} loginHandelClick={() => this.loginHandelClick()}/>
                         </div>
                     </div>
                     : null

@@ -12,6 +12,7 @@ class MySpace extends React.Component{
             loading: true,
             apartments: [],
             uploadButton: false,
+            apartmentId: null,
 
         };
     }
@@ -23,7 +24,7 @@ class MySpace extends React.Component{
     async getData(){
         const data = await api.getMyApartments();
         console.log(data);
-        this.setState({apartments:data.data.apartments, loading: false});
+        this.setState({apartments:data.apartments, loading: false});
         console.log(this.state.apartments);
     }
 
@@ -37,11 +38,23 @@ class MySpace extends React.Component{
         e.stopPropagation();
     };
 
+    deleteApartmentHandelClick =(id) =>{
+        this.setState({
+            apartmentId: id,
+        }, () => this.deleteMyApartment());
+    };
+
+    async deleteMyApartment(){
+        const data = await api.deleteApartment({apartmentId: this.state.apartmentId});
+        console.log(data);
+        this.getData()
+
+    }
+
     render() {
         console.log(this.state);
         return (
             <div className={"my_space"}>
-
 
                 <div className={"open_uplode_button"}>
                     <button  id={"UploadNewApartment"} onClick={this.uploadHandelClick}>Upload new apartment</button>
@@ -60,7 +73,7 @@ class MySpace extends React.Component{
                     <div className={"row m-0 d-flex justify-content-around"}>
                         {this.state.apartments.map((item, i) => {
                             return (
-                                <Card {...item} type={"apartments"} delete_apartment={true} key={i}/>
+                                <Card {...item} type={"apartments"} deleteApartmentHandelClick={this.deleteApartmentHandelClick} delete_apartment={true} key={i}/>
                             )
                         })}
                     </div>
