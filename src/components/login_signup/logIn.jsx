@@ -1,5 +1,5 @@
 import React from 'react';
-import {Redirect, withRouter} from 'react-router-dom';
+import { withRouter} from 'react-router-dom';
 
 import "../../css/login_signupCss/login_signupCSS.css"
 import validate, {field} from './validator';
@@ -10,7 +10,7 @@ class LogIn extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            email: field({name: 'email', isRequired: true, pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/}),
+            email: field({name: 'email', isRequired: true, pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/}),
             password: field({name: 'password', isRequired:true, minLength: 6})
         };
 
@@ -28,7 +28,6 @@ class LogIn extends React.Component{
                 errors
             }
         });
-        console.log(this.props);
     }
 
     handleSubmit (event) {
@@ -93,7 +92,7 @@ class LogIn extends React.Component{
                             <div className={"error"}><InputErrors errors={this.state.password.errors}></InputErrors></div>
 
                             <div className="form-group">
-                                <p className="text-center">By signing up you accept our <a className={"form_link"} href="#">Terms Of Use</a></p>
+                                <p className="text-center">By signing up you accept our <a className={"form_link"} href="/">Terms Of Use</a></p>
                             </div>
                             <div className="col-md-12 text-center ">
                                 <button type="submit" className=" btn btn-block mybtn tx-tfm">Login</button>

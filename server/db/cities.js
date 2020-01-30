@@ -12,10 +12,7 @@ function getCities() {
     });
 }
 
-
-
 function getCitiesByCountry(country) {
-    // console.log(country);
     return new Promise((resolve, reject) => {
         connection.query(`SELECT cities.name FROM apartments join cities on apartments.city_id = cities.id join countries on cities.country_id = countries.id 
                             where ? group by cities.name;`,[country], (error, results, fields) => {
@@ -23,7 +20,6 @@ function getCitiesByCountry(country) {
                 reject(error);
                 return;
             }
-            // console.log(results),
             resolve(results);
         });
     });
@@ -33,5 +29,4 @@ function getCitiesByCountry(country) {
 module.exports = {
     getCities,
     getCitiesByCountry,
-
 };

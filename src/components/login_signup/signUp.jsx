@@ -12,7 +12,7 @@ class SignUp extends React.Component{
         this.state = {
             first_name: field({name: 'firstName', isRequired:true, minLength: 2}),
             last_name: field({name: 'lastName',isRequired: true, minLength: 2}),
-            email: field({name: 'email', required: true, pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/}),
+            email: field({name: 'email', required: true, pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/}),
             password: field({name: 'password', isRequired:true, minLength: 6}),
             phone: field({name: 'phone', isRequired:true}),
         };

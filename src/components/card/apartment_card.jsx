@@ -18,7 +18,7 @@ class ApartmentCard extends React.Component{
                         <div className={"price"}>
                             <img className={"card-img-top"} src= {`http://localhost:5000/${main_image}`} alt="/"/>
                             <h3>{description}</h3>
-                            <h4>{`$${price}`}</h4>
+                            <h4>{`$${price.toString().replace(/(\d)(?=(\d{3})+$)/g, "$1,")}`}</h4>
                             <div className={"heart"}>{heart}</div>
                         </div>
                     </Link>

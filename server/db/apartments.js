@@ -3,7 +3,7 @@ const Builder = require('./builders/apartmentsBuilder');
 
 
 
-function getApartmentsLength(apartnemtId){
+function getApartmentsLength(){
     return new Promise((resolve, reject) => {
         connection.query(`SELECT count(*) as length FROM apartments ;`, (error, results, fields) => {                          
             if (error) {
@@ -61,6 +61,7 @@ function getAllapartments({
         }
     });
 }
+
 function getLastFourApartments() {
     return new Promise((resolve, reject) => {
         try {
@@ -79,6 +80,26 @@ function getLastFourApartments() {
         }
     });
 }
+
+function getLastFourSydneyApartments() {
+    return new Promise((resolve, reject) => {
+        try {
+            const {query, params} = Builder.allApartments().status('pending').city('Tel Aviv-Yafo').group_by().build();
+            let que = query;
+            que += ' ORDER BY created_on DESC LIMIT 0, 4 ';
+            connection.query(que, params, (error, results, fields) => {
+                if (error) {
+                    reject(error);
+                    return;
+                }
+                resolve(results);
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    });
+}
+
 
 function getMyapartments(user) {
     return new Promise((resolve, reject) => {
@@ -127,6 +148,18 @@ function getApartmentById(apartmentId) {
     });
 }
 
+function getPropertyTypeData(){
+    return new Promise((resolve, reject) => {
+        connection.query(`SELECT property_type, count(*) as sum FROM apartments group by property_type`, (error, results, fields) => {                          
+            if (error) {
+                reject(error);
+                return;
+            }
+            resolve(results);
+        });
+    });
+}
+
 function addApartment(newApartnemt){
     const {address, city_id, price, number_of_room, number_of_bath, sqft, description, sale_status, property_type, main_image} = newApartnemt;
     const availability = "available";
@@ -164,13 +197,13 @@ function newImagesNewApartnemt(apartnemtId, imagesArray){
 }
 
 
-
-
 module.exports = {
     getApartmentsLength,
     getAllapartments,
     getApartmentById,
     getLastFourApartments,
+    getLastFourSydneyApartments,
+    getPropertyTypeData,
     getMyapartments,
     deleteApartment,
     addApartment,

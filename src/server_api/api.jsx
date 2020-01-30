@@ -2,6 +2,15 @@ import fetcher from "./fetcher";
 
 const api = {
 
+    async getPropertyTypeData(){
+        try{
+            const data = await fetcher.get(`/apartments/property/Type/Data`);
+            return data.data
+        }  catch (error) {
+            console.log(error);
+        }
+    },
+
     async getLengthApartmentsArray(){
         try{
             const data = await fetcher.get(`/apartments/length`);
@@ -14,7 +23,16 @@ const api = {
     async getLastFourApartments(){
         try{
             const data = await fetcher.get(`/apartments/fourLastApartmentsBydate`);
-            return data
+            return data.data
+        }  catch (error) {
+            console.log(error);
+        }
+    },
+
+    async getLastFourSydneyApartments(){
+        try{
+            const data = await fetcher.get(`/apartments/getLastFourSydneyApartments`);
+            return data.data
         }  catch (error) {
             console.log(error);
         }
@@ -23,7 +41,7 @@ const api = {
     async getfilteredApartments(filtered){
         try{
             const data = await fetcher.get(`/apartments?${filtered}`);
-            return data
+            return data.data
         }  catch (error) {
             console.log(error);
         }
@@ -38,6 +56,16 @@ const api = {
         }
     },
 
+    async getSingleApartment(apartmentId){
+        try{
+            const data = await fetcher.get(`/apartments/${apartmentId}`);
+            return data.data
+        }  catch (error) {
+            console.log(error);
+        }
+    },
+
+
     async deleteApartment(apartmentId){
         try{
             const data = await fetcher.post(`/apartments/deleteApartment`, apartmentId);
@@ -50,7 +78,7 @@ const api = {
     async loginUser(userData){
         try{
             const data = await fetcher.post(`/login`, userData);
-            // console.log(data);
+            return data
         }  catch (error) {
             console.log(error);
         }
@@ -59,7 +87,7 @@ const api = {
     async SignupUser(userData){
         try{
             const data = await fetcher.post(`/signup`, userData);
-            // console.log(data);
+            return data
         }  catch (error) {
             console.log(error);
         }
@@ -69,7 +97,6 @@ const api = {
         try{
             const data = await fetcher.get(`/cities/ByCountry/${country}`);
             return data.data;
-            // console.log(data);
         }catch (error) {
             console.log(error);
         }
@@ -79,17 +106,15 @@ const api = {
         try{
             const data = await fetcher.get(`/cities`);
             return data;
-            // console.log(data);
         }  catch (error) {
             console.log(error);
         }
     },
 
     async AddNewApartment(newApartmentData){
-        console.log(newApartmentData);
         try{
             const data = await fetcher.post(`/apartments/addApartment`, newApartmentData);
-            // console.log(data);
+            return data
         }  catch (error) {
             console.log(error);
         }

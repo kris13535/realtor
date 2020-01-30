@@ -1,12 +1,18 @@
 var express = require('express');
 var multer = require('multer');
 var router = express.Router();
-var { getAllapartments, getApartmentById, getLastFourApartments, addApartment, newImagesNewApartnemt, getMyapartments, deleteApartment, getApartmentsLength } = require('../db/apartments');
+var { getAllapartments, getApartmentById, getLastFourApartments,
+     addApartment, newImagesNewApartnemt, getMyapartments, deleteApartment,
+      getApartmentsLength, getPropertyTypeData, getLastFourSydneyApartments } = require('../db/apartments');
+
+let time = Date.now();
 
 const storage = multer.diskStorage({
-    destination: 'images/apartment/',
-    filename:function(req,file,CDfunction){
-        CDfunction(null, file.originalname)
+    destination: function(req,file,cb){
+        cb(null, 'public/images/apartment',)
+    },
+    filename:function(req,file,cb){
+        cb(null, "img"+time+file.originalname)
     }
 });
 
@@ -18,7 +24,6 @@ router.get('/', function(req, res, next) {
         .then(apartments => res.status(200).json({ apartments }))
         .catch(error => res.status(500).json({ error: error.message }));
 });
-
 
 router.get('/length', function(req, res, next) {
     getApartmentsLength()
@@ -32,9 +37,21 @@ router.get('/fourLastApartmentsBydate', function(req, res, next) {
         .catch(error => res.status(500).json({ error: error.message }));
 });
 
+router.get('/getLastFourSydneyApartments', function(req, res, next) {
+    getLastFourSydneyApartments()
+        .then(apartments  => res.status(200).json({apartments}))
+        .catch(error => res.status(500).json({ error: error.message }));
+});
+
 router.get('/:apartmentId', function(req, res, next) {
     getApartmentById(req.params.apartmentId)
         .then(apartments => res.status(200).json({apartments}))
+        .catch(error => res.status(500).json({ error: error.message }));
+});
+
+router.get('/property/Type/Data', function(req, res, next) {
+    getPropertyTypeData()
+        .then(PropertyTypeData => res.status(200).json({PropertyTypeData}))
         .catch(error => res.status(500).json({ error: error.message }));
 });
 
@@ -54,14 +71,8 @@ router.post('/deleteApartment', function(req, res, next) {
 
 router.post('/addApartment',upload.array('images'),async function(req,res,next){
     try{
-        // console.log("ffffffffffffffff", req.files.destination);
-        // console.log(req.body);
-        // console.log(req.files);
-    
         const main_image = req.files[0].destination + req.files[0].originalname;
-        // console.log(main_image);
         req.body.main_image = main_image;
-        // console.log(req.body);
         const newApartment = await addApartment(req.body);
         const newImages = await newImagesNewApartnemt(newApartment, req.files);
         res.status(201).json({newImages});

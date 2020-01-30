@@ -1,8 +1,9 @@
 import React from 'react';
+
 import Card from "../../components/card/card.jsx";
 import Filters from "./filters/filters";
-import api from "../../server_api/api";
 import Pagination from "../../components/pagination/pagination";
+import api from "../../server_api/api";
 
 class Gallery extends React.Component {
     constructor(props) {
@@ -17,19 +18,10 @@ class Gallery extends React.Component {
         }
     };
 
-    // async componentWillMount() {
-    //     const data = await api.getLengthApartmentsArray();
-    //     this.setState({
-    //         len_apartments: data.length.length,
-    //     });
-    //     console.log(this.state.len_apartments);
-    // }
-
-
     async componentDidMount(){
         const data = await this.getdata();
         let countries_array= [];
-        data.data.apartments.map(item => {return countries_array.push(item.country)});
+        data.apartments.map(item => {return countries_array.push(item.country)});
         this.setState({
             countries: Array.from(new Set(countries_array)),
         });
@@ -38,24 +30,15 @@ class Gallery extends React.Component {
     async getdata(){
         const data = await api.getfilteredApartments(this.state.filtered);
         this.setState({
-            apartments:data.data.apartments,
+            apartments:data.apartments,
         });
         this.setState({
             len_apartments: this.state.apartments.length,
         });
-        console.log(this.state.len_apartments);
         return data
     }
 
-    pageHandelClick = (page) => {
-        this.setState({
-            page: page,
-        });
-
-        console.log(this.state.filtered);
-    };
-
-    updateGalleryItems  = (data) => {
+    updateGalleryItems = (data) => {
 
        if(data.minPrice){
            data.minPrice = this.data_price_multiplication(data.minPrice);
@@ -65,7 +48,6 @@ class Gallery extends React.Component {
        }
 
        data = this.dataToString(data);
-       console.log(data);
 
         this.setState({
             filtered: data,
@@ -73,8 +55,6 @@ class Gallery extends React.Component {
         this.setState({
             apartments: this.state.apartments,
         }, () => this.getdata());
-
-        console.log(this.state.apartments)
     };
 
     data_price_multiplication = (price) => {
@@ -106,9 +86,14 @@ class Gallery extends React.Component {
         }, () => {this.getdata()})
     };
 
+    pageHandelClick = (page) => {
+        this.setState({
+            page: page,
+        });
+    };
+
     render() {
         const {apartments, len_apartments, page} = this.state;
-        console.log("ferwregregvreg", apartments.slice(this.state.page-1*12,(this.state.page-1*12)+12));
         return (
             <div style={{overflow:"hidden"}}>
                 <div>

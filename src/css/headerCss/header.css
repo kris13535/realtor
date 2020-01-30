@@ -1,5 +1,10 @@
 .logo_img {
-  width: 160px; }
+  width: 160px;
+  font-size: 20px;
+  font-family: 'Pacifico', cursive;
+  background: #b0e9ff;
+  padding: 0 10px 0 17px;
+  border-radius: 50px; }
 
 .top-bar {
   position: relative;

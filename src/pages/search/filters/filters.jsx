@@ -1,4 +1,5 @@
 import React from 'react';
+
 import '../../../css/searchCss/filters.css';
 import CountryFilter from "./country_filter";
 import PriceFilter from "./price_filter";
