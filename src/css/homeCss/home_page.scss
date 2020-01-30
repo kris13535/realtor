@@ -1,28 +1,4 @@
 
-.be_ready_to_buy {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
-  img {
-    width: 20px;
-    margin: 0px 10px;
-  }
-  button {
-    margin: 5px 0 5px 5px;
-    padding: 8px 15px;
-    font-size: 13px;
-    border-radius: 50px;
-    border-color: #D92328;
-    color: #D92328;
-    background: white;
-    &:hover {
-      background: #e2dcdc;
-    }
-  }
-}
-/*----------------------------------------*/
-
 .background_image_and_form {
   background-repeat: no-repeat;
   background-size: cover;
@@ -31,9 +7,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   flex-direction: column;
   overflow: hidden;
   position: relative;
+
   form{
     display: flex;
     align-items: center;
@@ -50,14 +28,15 @@
     border-bottom-left-radius: 5px;
   }
   button {
-    width: 100px;
+    margin-top: 20px;
+    width: 230px;
     height: 55px;
     background: rgb(255, 0, 0);
     color: #ffffff;
     font-size: 18px;
     border: none;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-radius: 10px;
+
     a {
       color: white;
       text-decoration: none;
@@ -68,14 +47,12 @@
   }
 }
 
-.img_text_center {
-  align-items: center;
-}
 
 .img_text{
   color: #ffffff;
   p{
     font-size: 20px;
+    margin-left: 30px;
     padding: 15px 0 15px 0;
   }
   h1 {
@@ -90,98 +67,6 @@
     font-size: 36px;
     font-weight: bold;
   }
-}
-
-.menu_bar {
-  display: flex;
-  justify-content: center;
-  ul {
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-    li {
-      padding: 6px;
-      margin: 20px;
-      font-size: 14px;
-      border-bottom: 4px solid transparent;
-      &:nth-child(1) {
-      border-bottom: 4px solid #D92328;
-      }
-      &:hover {
-        border-bottom: 4px solid #D92328;
-      }
-      a{
-      font-weight: bold;
-      color: white;
-      text-decoration: none;
-      }
-    }
-  }
-}
-
-@media (max-width: 991px) {
-  .background_image_and_form{
-    form{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-left: 220px;
-    width: 75%;
-    }
-  }
-}
-
-.background_bottom {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  position: absolute;
-  bottom: 0px;
-  left: 0;
-  right: 0;
-  img{
-    width: 130px;
-  }
-  a{
-    &:hover{
-      text-decoration: none;
-    }
-  }
-  p{
-    color: white;
-    text-align: center;
-    padding-right: 10px;
-  }
-  button{
-    padding: 5px 10px;
-    background: transparent;
-    color: white;
-    border-radius: 4px;
-    &:hover {
-      background: white;
-      color: black;
-      transition: 0.5s;
-    }
-  }
-}
-
-@media (max-width: 991px) {
-  .background_bottom{
-    p{
-      font-size: 12px;
-    }
-    button{
-      font-size: 12px;
-      padding: 15px 10px;
-    }
-  }
-}
-
-.background_bottom_2 {
-  display: flex;
-  padding: 10px;
-  align-items: center;
 }
 
 /*-----------------------------------------------*/
@@ -212,6 +97,7 @@
 /*-----------------------------------------------*/
 
 .happening_in_francisco {
+  margin-top: 10px;
   padding-bottom: 30px;
   padding-left: 10px;
   .ca {
@@ -219,6 +105,23 @@
      padding: 25px 0;
      font-weight: bold;
   }
+  .card_wruper{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .statistics{
+    max-width: 800px;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  }
+
+  .property_type_item{
+    margin-right: 55px;
+    margin-left: 55px;
+  }
+
   .inpo_rows{
     display: flex;
     font-size: 16px;
@@ -254,7 +157,7 @@
   position: relative;
   .black_cover {
     background: rgba(0,0,0,0.4);
-    background-repeat: no-repeat;
+    //background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
     height: 500px;
@@ -268,6 +171,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  span{
+    font-family: 'Pacifico', cursive;
+  }
   h2{
   padding-bottom: 55px;
   font-size: 20px;
@@ -375,6 +281,13 @@
     color: white;
     top: 30px;
   }
+}
+
+/*------------------------------------------------*/
+
+.listings_in_Sydney {
+  font-size:22px;
+  font-weight: bold;
 }
 
 /*------------------------------------------------*/
@@ -521,8 +434,8 @@
 
 .icons_line_rigth {
  display: flex;
-  justify-content: end;
-  align-items: end;
+  justify-content: flex-end;
+  align-items: flex-end;
   img{
     width: 160px;
 

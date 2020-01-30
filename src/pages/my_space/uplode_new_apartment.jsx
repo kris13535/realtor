@@ -41,7 +41,7 @@ class UplodeNewApartment extends React.Component{
             if(item.name === this.state.city_id.value){
                 this.state.city_id.value= item.id
             }
-        })
+        }) ;
     }
 
     handleChange({target:{name,value}}){
@@ -61,7 +61,7 @@ class UplodeNewApartment extends React.Component{
             }, () => name === "city_id" ? this.city_to_cityId() : null );
         }
 
-        // console.log(this.state);
+
     }
 
     handleChangefile =(e)=>{
@@ -142,7 +142,6 @@ class UplodeNewApartment extends React.Component{
 
 
     render() {
-        // console.log(this.state);
         return (
 
             <div className="apartment_form form" onClick={this.props.handleChildClick}>
@@ -156,7 +155,7 @@ class UplodeNewApartment extends React.Component{
 
                                 <div className="col-md-4 mb-3 input_div">
                                     <label className={"input_label"} htmlFor="validationDefault01">City</label>
-                                    <input className="form_input" list="city_list" type="text" name="city_id" placeholder="Enter city" placeholder="Enter city name" onBlur={this.handleChange}/>
+                                    <input className="form_input" list="city_list" type="text" name="city_id" placeholder="Enter city" onBlur={this.handleChange}/>
                                     <datalist id="city_list">
                                         {this.state.city_list.map((item, index) => {
                                             return ( <option value={item.name}/>)})

@@ -18,7 +18,6 @@ class HomeFamilyPart extends React.Component {
                         <h2>Need a home loan? Get pre-approved</h2>
                         <h3>Find a lender who can offer competitive mortgage rates and help you with
                             pre-approval.</h3>
-                        <button>Get pre-approved now</button>
                     </div>
                 </div>
 
@@ -32,10 +31,6 @@ class HomeFamilyPart extends React.Component {
                         <h3>Does it have pet-friendly rentals? What are the crime rates? How are the schools?
                             Get
                             important local information on the area you're most interested in.</h3>
-                        <form>
-                            <input type="text" name="text" placeholder="Address, city, Neighborhood or Zip"/>
-                            <button>search</button>
-                        </form>
                     </div>
                 </div>
             </div>

@@ -10,7 +10,7 @@ class GoogleMaps extends React.Component {
     render() {
         return (
             <div className={"map_apartment"}>
-                <iframe src={`https://maps.google.com/maps?q=${(this.props.apartment.country + this.props.apartment.city_name).replace(/\s/g, '')}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
+                <iframe title={"map"} src={`https://maps.google.com/maps?q=${(this.props.apartment.country + this.props.apartment.city_name).replace(/\s/g, '')}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
                         frameBorder="0"
                         style={{border:"0"}} allowFullScreen>
                 </iframe>

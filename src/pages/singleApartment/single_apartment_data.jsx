@@ -11,7 +11,7 @@ class SingleApartmentData extends React.Component {
         const {apartment} = this.props;
         return (
             <div className={"more_inpo"}>
-                <p className={"price"}>$ {apartment.price}</p>
+                <p className={"price"}>$ {apartment.price.toString().replace(/(\d)(?=(\d{3})+$)/g, "$1,")}</p>
                 <p className={""}><b>{apartment.number_of_bath}</b> bath <b>{apartment.number_of_room}</b> rooms
                     {apartment.sqft ?<span> <b>{apartment.sqft}</b> <span> sqft</span></span> : "" }</p>
                 <p className={""}>{apartment.address} , <span>{apartment.city_name}</span> </p>

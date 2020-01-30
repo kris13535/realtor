@@ -3,12 +3,8 @@ import cookie from "react-cookies";
 import {withRouter} from 'react-router-dom';
 import {Link} from "react-router-dom";
 
-class Main_nav_item_rigth extends React.Component{
-    constructor(props){
-        super(props);
-    }
+class MainNavItemRigth extends React.Component{
     onLogout = () => {
-
         cookie.remove('login_user', { path: '/' });
         this.props.setUser();
         this.props.history.push('/');
@@ -43,11 +39,11 @@ class Main_nav_item_rigth extends React.Component{
                         <div className={"line_iphone"}>
                             <img src={"images/oA4SEKw.png"} alt={"/"}/>
                             <div className={"part_iphone"}>
-                                <a href="">Realtor.com® Rentals</a>
+                                <a href="/">Realtor.com® Rentals</a>
                                 <div className={"iOS"} >
                                     <a href="/">iOS </a>
                                     <p className={"p_spae"}>|</p>
-                                    <a href="">Android</a>
+                                    <a href="/">Android</a>
                                 </div>
                             </div>
                         </div>
@@ -76,4 +72,4 @@ class Main_nav_item_rigth extends React.Component{
     }
 }
 
-export default withRouter(Main_nav_item_rigth);
+export default withRouter(MainNavItemRigth);

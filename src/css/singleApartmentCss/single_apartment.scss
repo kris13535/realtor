@@ -137,7 +137,7 @@
   }
 }
 
-@media (max-width: 771px) {
+@media (max-width: 750px) {
   .more_inpo_form {
     position: absolute;
     top: 580px;
@@ -147,10 +147,11 @@
   }
   .map_apartment{
     iframe{
-      top: 1100px;
-      left: 0;
+      top: 430px;
+      left: 200px;
       right: 0;
       margin: auto;
+      max-width: 250px;
     }
   }
   .icons_form i {

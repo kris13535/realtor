@@ -1,7 +1,7 @@
 import React from "react";
 
 
-class Inner_nav_item_left extends React.Component{
+class InnerNavItemLeft extends React.Component{
     render() {
         return (
             <ul className={"bars"} style={{display: this.props.isOpen ? 'flex' : 'none'}}>
@@ -19,4 +19,4 @@ class Inner_nav_item_left extends React.Component{
     }
 }
 
-export default Inner_nav_item_left;
+export default InnerNavItemLeft;

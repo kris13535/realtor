@@ -1,9 +1,9 @@
 import React from 'react';
 import {navigation} from "../../app_data/header_array";
-import Inner_nav_item_left from "./inner_nav_item_left.jsx";
 import {Link} from "react-router-dom";
+import InnerNavItemLeft from "./inner_nav_item_left";
 
-class Main_nav_item_left extends React.Component{
+class MainNavItemLeft extends React.Component{
     constructor(){
         super();
         this.state = {
@@ -26,8 +26,8 @@ class Main_nav_item_left extends React.Component{
                           onMouseOver={() => this.change_active_menu(i)}
                           onMouseOut={() => this.change_active_menu(-1)}>
                           {main_nav_item.label === 'Buy' ? <Link to={'/searchPage'}><h4 className={"inner_nav_li_label"}>{main_nav_item.label}</h4></Link> :
-                              <Link to={'/'}><h4 className={"inner_nav_li_label"}>{main_nav_item.label}</h4> </Link>}
-                            <Inner_nav_item_left inner_menu={main_nav_item.inner_menu} isOpen={this.state.active_menu === i}/>
+                              <Link to={'/'}><h4 className={"inner_nav_li_label"}>{main_nav_item.label}</h4></Link>}
+                            <InnerNavItemLeft inner_menu={main_nav_item.inner_menu} isOpen={this.state.active_menu === i}/>
                       </li>
                    )
                 })}
@@ -37,4 +37,4 @@ class Main_nav_item_left extends React.Component{
 }
 
 
-export default Main_nav_item_left;
+export default MainNavItemLeft;

@@ -16,7 +16,8 @@ class HomeApartmentsCard extends React.Component {
                 <div className={"row"}>
                     {this.props.loading === true ?
                         <Loading type={"loading"} loading_array={loading_array.slice(0,4)}/>
-                        : this.props.apartments_4.map(apartment => { return(<Card {...apartment} cities={this.props.cities} type={this.props.type}/>)})}
+                        : this.props.apartments_4.map( (apartment ,i)=>
+                        { return(<Card {...apartment} cities={this.props.cities} key={i} type={this.props.type}/>)})}
                 </div>
             </div>
         )

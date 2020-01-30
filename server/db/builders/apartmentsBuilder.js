@@ -1,12 +1,9 @@
 class CustomersBuilder {
     constructor(page, size) {
-        this.query = 'SELECT ap.* ,ap.id,c.name `city_name`,countries.`name` country,group_concat(images.url) \
-                            images,concat(u.first_name,u.last_name) onwer,u.email\
-                            FROM apartments ap join cities c ON ap.city_id = c.id\
-                            JOIN countries  ON c.country_id = countries.id \
-                            LEFT JOIN images ON ap.id = images.apartment_id\
-                            JOIN users u ON ap.user_id = u.id\
-                            WHERE 1 ';
+        this.query = 'SELECT ap.* ,ap.id,c.name `city_name`,countries.`name` country,group_concat(images.url) images,concat(u.first_name,u.last_name) onwer,u.email\
+                        FROM apartments ap join cities c ON ap.city_id = c.id JOIN countries  ON c.country_id = countries.id \
+                        LEFT JOIN images ON ap.id = images.apartment_id JOIN users u ON ap.user_id = u.id\
+                        WHERE 1 ';
 
 
         this.params = [];

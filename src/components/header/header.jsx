@@ -1,17 +1,15 @@
 import React from 'react';
-import Main_nav_item_left from "./main_nav_item_left.jsx";
-import Main_nav_item_rigth from "./main_nav_item_rigth";
+import {Link} from "react-router-dom";
+import cookie from 'react-cookies';
+
 import "../../css/headerCss/ipone_size.css";
 import "../../css/headerCss/header.css";
 import "../../css/headerCss/inner_nav_item_rigth.css";
-import cookie from 'react-cookies';
-
-
-import {
-    Link
-} from "react-router-dom";
 import LogIn from "../login_signup/logIn";
 import SignUp from "../login_signup/signUp";
+import MainNavItemRigth from "./main_nav_item_rigth";
+import MainNavItemLeft from "./main_nav_item_left";
+
 
 class Header extends React.Component{
     constructor(props) {
@@ -19,13 +17,10 @@ class Header extends React.Component{
         this.state = {
             login: false,
             singUp: false,
-
+            user: cookie.load('login_user')
         };
     }
-    componentWillMount() {
-        this.state = ({user: cookie.load('login_user')});
-        console.log(cookie.load('login_user'));
-    }
+
 
     loginHandelClick = () => {
         this.setState({
@@ -55,7 +50,6 @@ class Header extends React.Component{
     };
 
     render() {
-        // console.log(this.state);
         return(
             <header className={"container-fluid text-align-center top-bar"}>
 
@@ -67,11 +61,11 @@ class Header extends React.Component{
                         <span className="navbar-toggler-icon"></span>
                     </button>
 
-                    <Link to="/"><img className={"logo_img"} src={"./images/logo_basics_summery.png"} alt={"/"}/></Link>
-                    <Main_nav_item_left/>
+                    <Link to="/"><div className={"logo_img"}> kris Properties </div></Link>
+                    <MainNavItemLeft/>
                 </div>
                 <div>
-                    <Main_nav_item_rigth loginHandelClick={() => this.loginHandelClick}
+                    <MainNavItemRigth loginHandelClick={() => this.loginHandelClick}
                                          signUpHandelClick={() => this.signUpHandelClick}
                                          setUser={() => this.setUser()}
                                          user={this.state.user}/>

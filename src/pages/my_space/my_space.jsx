@@ -23,9 +23,8 @@ class MySpace extends React.Component{
 
     async getData(){
         const data = await api.getMyApartments();
-        console.log(data);
         this.setState({apartments:data.apartments, loading: false});
-        console.log(this.state.apartments);
+
     }
 
     uploadHandelClick = () =>{
@@ -42,19 +41,17 @@ class MySpace extends React.Component{
         this.setState({
             apartmentId: id,
         }, () => this.deleteMyApartment());
+
     };
 
     async deleteMyApartment(){
-        const data = await api.deleteApartment({apartmentId: this.state.apartmentId});
-        console.log(data);
+        await api.deleteApartment({apartmentId: this.state.apartmentId});
         this.getData()
-
     }
 
     render() {
-        console.log(this.state);
         return (
-            <div className={"my_space"}>
+            <div className={"my_space  page-container"}>
 
                 <div className={"open_uplode_button"}>
                     <button  id={"UploadNewApartment"} onClick={this.uploadHandelClick}>Upload new apartment</button>

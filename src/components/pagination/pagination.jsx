@@ -1,6 +1,4 @@
 import React from 'react';
-import api from "../../server_api/api";
-import Card from "../card/card";
 
 class Pagination extends React.Component {
     constructor(props) {
@@ -26,15 +24,12 @@ class Pagination extends React.Component {
             arr_number_of_pages.push(i);
         }
 
-        console.log(len_apartments);
-        console.log(arr_number_of_pages);
-
         return (
             <div>
                 <nav aria-label="Page navigation example">
                     <ul className="pagination">
                         <li className="page-item">
-                            <a className="page-link" href="#" aria-label="Previous">
+                            <a className="page-link" href="/" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                                 <span className="sr-only">Previous</span>
                             </a>
@@ -42,12 +37,12 @@ class Pagination extends React.Component {
 
                         {arr_number_of_pages.map((item, i) => {
                             return (
-                                <li className="page-item"><a className="page-link" href="#" key={i} onClick={() => this.props.pageHandelClick(item)}>{item}</a></li>
+                                <li className="page-item" key={i}><a className="page-link" href="/"  onClick={() => this.props.pageHandelClick(item)}>{item}</a></li>
                             )
                         })}
 
                         <li className="page-item">
-                            <a className="page-link" href="#" aria-label="Next">
+                            <a className="page-link" href="/" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                                 <span className="sr-only">Next</span>
                             </a>
